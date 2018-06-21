@@ -1,3 +1,22 @@
 <div class="jumbotron">
-  <h3>Hi there, I'm {{ $ctrl.componentName }}</h3>
+  <h1>{{ $ctrl.componentName }}</h1>
+  <form class="form-horizontal" ng-submit="$ctrl.register($event)">
+
+    <div class="form-group form-group-lg">
+
+      <label for="" class="control-label">Your name</label>
+
+      <input id="registerName" type="text" class="form-control" ng-model="$ctrl.user.name">
+
+      <label for="" class="control-label">Email Address</label>
+
+      <input id="registerEmail" type="email" class="form-control" ng-model="$ctrl.user.email">
+
+      <label for="" class="control-label">Password</label>
+
+      <input id="registerPassword" type="password" class="form-control" ng-model="$ctrl.user.password">
+
+    </div>
+    <button class="btn btn-block btn-success btn-lg"> Register your data</button>
+  </form>
 </div>

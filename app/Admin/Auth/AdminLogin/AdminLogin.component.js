@@ -3,11 +3,27 @@ import componentStyles from './AdminLogin.scss'
 
 class AdminLoginController {
     constructor() {
-        this.componentName = 'adminLoginComponent';
+        this.componentName = 'Login Form';
+        this.admin = {
+
+        };
     }
 
     $onInit() {
-        console.log('hi there, I am', this.componentName);
+        // console.log('hi there, I am', this.componentName);
+
+    }
+
+
+
+
+    onSubmit(event) {
+        event.preventDefault();
+        console.log(this.admin);
+
+        document.getElementById('email').value = '';
+        document.getElementById('password').value = '';
+
     }
 }
 

@@ -4,10 +4,11 @@ import componentStyles from './AdminRecover.scss'
 class AdminRecoverController {
     constructor() {
         this.componentName = 'adminRecoverComponent';
+       
     }
 
     $onInit() {
-        console.log('hi there, I am', this.componentName);
+        // console.log('hi there, I am', this.componentName);
     }
 }
 

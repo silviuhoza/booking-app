@@ -3,11 +3,26 @@ import componentStyles from './AdminRegister.scss'
 
 class AdminRegisterController {
     constructor() {
-        this.componentName = 'adminRegisterComponent';
+        this.componentName = 'Register form';
+        this.user = {
+
+        };
     }
 
     $onInit() {
-        console.log('hi there, I am', this.componentName);
+        // console.log('hi there, I am', this.componentName);
+    }
+
+    register(event) {
+        event.preventDefault();
+
+        console.log(this.user);
+
+        document.getElementById('registerName').value = '';
+        document.getElementById('registerEmail').value = '';
+        document.getElementById('registerPassword').value = '';
+        
+
     }
 }
 

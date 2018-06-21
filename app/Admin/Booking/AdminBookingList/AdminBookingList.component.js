@@ -7,7 +7,7 @@ class AdminBookingListController {
     }
 
     $onInit() {
-        console.log('hi there, I am', this.componentName);
+        // console.log('hi there, I am', this.componentName);
     }
 }
 
