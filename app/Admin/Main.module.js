@@ -10,10 +10,20 @@ import { adminBookingComponent } from './Booking/AdminBooking/AdminBooking.compo
 import { adminBookingDetailsComponent } from './Booking/AdminBookingDetails/AdminBookingDetails.component';
 import { adminBookingListComponent } from './Booking/AdminBookingList/AdminBookingList.component';
 
- export default angular.module('Admin', [])
+// PERSON
+import { personAddComponent } from './Person/PersonAdd/PersonAdd.component';
+import { personListComponent } from './Person/PersonList/PersonList.component';
+import { personDetailsComponent } from './Person/PersonDetails/PersonDetails.component';
+
+ export default angular.module('Admin', [
+     'ngRoute'
+ ])
     .component('adminLoginComponent', adminLoginComponent)
     .component('adminRecoverComponent', adminRecoverComponent)
     .component('adminRegisterComponent', adminRegisterComponent)
     .component('adminBookingComponent', adminBookingComponent)
     .component('adminBookingDetailsComponent', adminBookingDetailsComponent)
     .component('adminBookingListComponent', adminBookingListComponent)
+    .component('personAddComponent', personAddComponent)
+    .component('personListComponent', personListComponent)
+    .component('personDetailsComponent', personDetailsComponent)

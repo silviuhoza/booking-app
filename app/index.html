@@ -5,18 +5,7 @@
   </head>
 
   <body ng-app="App" ng-controller="IndexController as IndexCtrl" ng-cloak>
-
-    <section class="container">
-      <admin-login-component></admin-login-component>
-      <admin-recover-component></admin-recover-component>
-      <admin-register-component></admin-register-component>
-
-      <admin-booking-component></admin-booking-component>
-      <admin-booking-details-component></admin-booking-details-component>
-      <admin-booking-list-component></admin-booking-list-component>
-
-    </section>
-
+    <section class="container" ng-view></section>
   </body>
 
   <tail><script src="index-bundle.js"></script></tail>
