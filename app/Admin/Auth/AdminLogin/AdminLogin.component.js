@@ -5,9 +5,9 @@ class AdminLoginController {
     constructor() {
         this.componentName = 'Login Form';
         this.admin = {
-
-        };
-        this.componentStyles = componentStyles;
+            
+         };
+      
     }
 
     $onInit() {
