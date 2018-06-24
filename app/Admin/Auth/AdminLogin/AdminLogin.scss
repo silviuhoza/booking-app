@@ -1,0 +1,10 @@
+$warningColor : red;
+$warningDisplay: block;
+$warningTextAlign : center;
+
+
+.admin-login-erros {
+    color:$warningColor; 
+    display:$warningDisplay; 
+    text-align:$warningTextAlign;
+}

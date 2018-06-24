@@ -1,21 +1,31 @@
 <div class="jumbotron">
-<h2>  {{ $ctrl.componentName }}</h2>
-  <form class="form-horizontal" ng-submit="$ctrl.onSubmit($event)">
+  <h2> {{ $ctrl.componentName }}</h2>
+  <form name="loginForm" novalidate class="form-horizontal" ng-submit="$ctrl.onSubmit($event)">
 
-    <div class="form-group form-group-lg">
+    <div class=" form-group form-group-lg">
 
       <label class="control-label" for="">Email </label>
 
-      <input id="email" class="form-control  " type="email" ng-model="$ctrl.admin.email">
+      <input id="email" name="email" placeholder="Your email " class="form-control  " type="email" ng-model="$ctrl.admin.email"
+        ng-required="true">
 
-      <label class="control-label" for="">Password  </label>
+      <div ng-show="loginForm.email.$touched && loginForm.email.$invalid  ">
+        <small style="color:red; display:block; text-align:center;">Enter a valid email</small>
+      </div>
 
-      <input id="password" class="form-control " type="password" ng-model="$ctrl.admin.password">
+      <label class="control-label" for="">Password </label>
+
+      <input id="password" name="password" placeholder="Your password" class="form-control " type="password" ng-model="$ctrl.admin.password"
+        ng-required="true">
+
+      <div ng-show="(loginForm.password.$touched && loginForm.password.$invalid)  || (loginForm.password.$invalid && loginForm.password.$submited)">
+        <small class="admin-login-error">Enter a password, please!</small>
+      </div>
 
     </div>
     <!-- <h4>Your email is: {{$ctrl.admin.email}}</h4>
     <h4>Your password is: {{$ctrl.admin.password}}</h4> -->
-    <button type="button" class="btn btn-primary btn-lg btn-block ">Login</button>
+    <button class="btn btn-primary btn-lg btn-block ">Login</button>
   </form>
 
 

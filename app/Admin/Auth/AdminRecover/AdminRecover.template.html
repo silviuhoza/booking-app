@@ -1,3 +1,13 @@
-<div class="jumbotron">
-  <h3>Hi there, I'm {{ $ctrl.componentName }}</h3>
+<div id="recover" class="jumbotron">
+  <h1> {{ $ctrl.title }}</h1>
+  <form novalidate class="form-horizontal" ng-submit="$ctrl.recover($event)">
+    <div class=" form-group form-group-lg">
+
+      <label class="control-label" for="">Email </label>
+      <input id="recoverEmail" type="email" class="form-control" placeholder="Your email" name="email" ng-model="$ctrl.user.email">
+
+
+    </div>
+    <button class="btn btn-primary btn-lg btn-block ">Recover</button>
+  </form>
 </div>
