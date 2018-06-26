@@ -1,4 +1,6 @@
-import { API } from '../../../Api';
+import {
+    API
+} from '../../../Api';
 import template from './PersonAdd.template.html'
 
 class PersonAddController {
@@ -11,10 +13,15 @@ class PersonAddController {
 
     onSubmit() {
         const url = API.base + API.people;
-        this.$rootScope.$broadcast('event:PersonAdd', { eventData: 'The person was added' });
         this.$http.post(url, this.person).then((response) => {
-
+            this.$rootScope.$broadcast('event:PersonAdd', response.data);
+             console.log(response.data);
         });
+        
+
+         document.getElementById('firstName').value = '';
+         document.getElementById('lastName').value = '';
+         document.getElementById('age').value = '';
     }
 }
 

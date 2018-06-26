@@ -11,7 +11,8 @@ class PersonListController {
     $onInit() {
         this.getPeople();
         this.$scope.$on('event:PersonAdd', (event, data) => {
-            console.log('eventData: ', data);
+            console.log(data)
+            this.personList.push(data);
         });
     }
 
@@ -25,8 +26,15 @@ class PersonListController {
     deletePerson(person) {
         const url = `${API.base}${API.people}/${person.id}`
         this.$http.delete(url).then((response) => {
-            this.getPeople();
+            var idx = this.personList.indexOf(person);
+            console.log(idx);
+            
+            this.personList.splice(idx, 1);
+
+           
+           
         });
+        
     }
 }
 
