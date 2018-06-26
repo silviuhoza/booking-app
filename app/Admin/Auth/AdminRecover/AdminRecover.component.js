@@ -18,15 +18,21 @@ class AdminRecoverController {
 
         console.log(this.user);
         //erasing the data from input
-        document.getElementById('recoverEmail').value = '';
-        //selecting the div where I append the new Element
-        const div = document.getElementById('recover');
-        // Create li element
-        const p = document.createElement('p');
-        //Append the text to element
-        p.appendChild(document.createTextNode('You have successfuly send the recover data!'));
-        //Append the element to the div
-        div.appendChild(p);
+        const recoverInput = document.getElementById('recoverEmail');
+        recoverInput.value = '';
+        // document.getElementById('recoverEmail').value = '';
+      
+          //selecting the div where I append the new Element
+          const div = document.getElementById('recover');
+          // Create li element
+          const p = document.createElement('p');
+          //Append the text to element
+          p.appendChild(document.createTextNode('You have successfuly send the recover data!'));
+          //Append the element to the div
+          div.appendChild(p);
+      
+          
+       
     }
 }
 
