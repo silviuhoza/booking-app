@@ -5,8 +5,9 @@ class AdminLoginController {
     constructor() {
         this.componentName = 'Login Form';
         this.admin = {
-
-        };
+            
+         };
+      
     }
 
     $onInit() {
@@ -14,11 +15,9 @@ class AdminLoginController {
 
     }
 
-
-
-
     onSubmit(event) {
         event.preventDefault();
+        
         console.log(this.admin);
 
         document.getElementById('email').value = '';
