@@ -2,20 +2,30 @@ import { API } from '../../../Api';
 import template from './PersonList.template.html'
 
 class PersonListController {
-    constructor($http) {
+    constructor($http, $scope) {
         this.personList = [];
         this.$http = $http;
+        this.$scope = $scope;
     }
 
     $onInit() {
-        // console.log('hi there, I am', this.componentName);
         this.getPeople();
+        this.$scope.$on('event:PersonAdd', (event, data) => {
+            console.log('eventData: ', data);
+        });
     }
 
     getPeople() {
         const url = API.base + API.people
         this.$http.get(url).then((response) => {
             this.personList = response.data;
+        });
+    }
+
+    deletePerson(person) {
+        const url = `${API.base}${API.people}/${person.id}`
+        this.$http.delete(url).then((response) => {
+            this.getPeople();
         });
     }
 }

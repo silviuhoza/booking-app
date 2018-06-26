@@ -2,20 +2,19 @@ import { API } from '../../../Api';
 import template from './PersonAdd.template.html'
 
 class PersonAddController {
-    constructor($http) {
+    constructor($http, $scope, $rootScope) {
         this.person = {};
         this.$http = $http;
-    }
-
-    $onInit() {
-        // console.log('hi there, I am', this.componentName);
+        this.$scope = $scope;
+        this.$rootScope = $rootScope;
     }
 
     onSubmit() {
-        const url = API.base + API.people
+        const url = API.base + API.people;
+        this.$rootScope.$broadcast('event:PersonAdd', { eventData: 'The person was added' });
         this.$http.post(url, this.person).then((response) => {
 
-        })
+        });
     }
 }
 
