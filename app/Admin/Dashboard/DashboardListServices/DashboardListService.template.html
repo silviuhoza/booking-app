@@ -1,0 +1,113 @@
+<div class="container">
+  <dashboard-add-service-component ng-show="showForm == true" ></dashboard-add-service-component>
+  <div class="row">
+    <p class="col-xs-offset-5 col-md-3">
+      <a href="" ng-click="showForm = !showForm" id="add-service" class="btn btn-group-lg">New Service</a>
+    </p>
+  </div>
+
+  <div id="card" class="well" ng-repeat="service in $ctrl.service">
+    <div class="row">
+      <div class="col-md-10">
+        <div id="card-header">
+          <h1>{{service.name}}
+            <span class="pull-right">
+              <a href="" ng-click="$ctrl.delete(service)">
+                <i class="fa fa-trash-alt"></i>
+              </a>
+            </span>
+            <span class="pull-right">
+              <a href="">
+                <i class="fa fa-pencil-alt" ng-click="$ctrl.edit(service)"></i>
+              </a>
+            </span>
+          </h1>
+        </div>
+        <div id="card-body">
+          <p>{{service.description}}.</p>
+
+        </div>
+        <div id="info" class="row">
+          <div class="col-md-5">
+            <p class="lead">
+              <strong> {{service.availability | date}} </strong>
+            </p>
+            <p>Availability</p>
+          </div>
+          <div class="col-md-3">
+            <p class="lead">
+              <strong>{{service.spaces}}</strong>
+            </p>
+            <p>Spaces</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong> {{service.duration}} </strong>
+            </p>
+            <p>Duration</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong> {{service.price}} </strong>
+            </p>
+            <p>Price</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- An  example of hardcode card -->
+  <div id="card" class="well" >
+    <div class="row">
+      <div class="col-md-10">
+        <div id="card-header">
+          <h1>Name of service
+            <span class="pull-right">
+              <a href="" ng-click="$ctrl.delete(service)">
+                <i class="fa fa-trash-alt"></i>
+              </a>
+            </span>
+            <span class="pull-right">
+              <a href="">
+                <i class="fa fa-pencil-alt" ng-click="$ctrl.edit(service)"></i>
+              </a>
+            </span>
+          </h1>
+        </div>
+        <div id="card-body">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas nisi quasi quod dicta excepturi ducimus, ea officiis, totam incidunt vitae cupiditate reprehenderit amet ratione, recusandae et repellat maxime fugit. Perspiciatis vitae saepe cupiditate. Quasi, animi. Eos deleniti, autem repellat distinctio illo, repellendus nihil non error rerum quo quia inventore aperiam!.</p>
+
+        </div>
+        <div id="info" class="row">
+          <div class="col-md-5">
+            <p class="lead">
+              <strong> Monday-Friday 8:00 - 16:00 </strong>
+            </p>
+            <p>Availability</p>
+          </div>
+          <div class="col-md-3">
+            <p class="lead">
+              <strong>6 locuri</strong>
+            </p>
+            <p>Spaces</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong>  1,5 hour</strong>
+            </p>
+            <p>Duration</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong> 23 Lei </strong>
+            </p>
+            <p>Price</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

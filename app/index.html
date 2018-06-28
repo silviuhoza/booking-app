@@ -1,13 +1,19 @@
 <html>
 
-  <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="App.css">
+</head>
 
-  <body ng-app="App" ng-controller="IndexController as IndexCtrl" ng-cloak>
-    <section class="container" ng-view></section>
-  </body>
+<body ng-app="App" ng-controller="IndexController as IndexCtrl" ng-cloak>
+  <header ng-include="'Pages/Header.html'"></header>
+  <section class="container" ng-view></section>
+</body>
 
-  <tail><script src="index-bundle.js"></script></tail>
+<tail>
+  <script src="index-bundle.js"></script>
+</tail>
 
 </html>

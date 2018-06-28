@@ -1,5 +1,5 @@
 import template from './AdminLogin.template.html'
-import componentStyles from './AdminLogin.scss'
+import componentStyles from './AdminLogin.css'
 
 class AdminLoginController {
     constructor() {

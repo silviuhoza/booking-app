@@ -19,6 +19,10 @@ function appConfig($routeProvider, $locationProvider) {
         .when('/contact', {
             templateUrl: 'pages/Contact.html'
         })
+        .when('/dashboard', {
+            templateUrl: 'pages/Dashboard.html'
+        })
+        
         .otherwise({
             redirectTo: '/'
         })

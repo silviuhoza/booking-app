@@ -29,9 +29,7 @@ class PersonListController {
             var idx = this.personList.indexOf(person);
             console.log(idx);
             
-            this.personList.splice(idx, 1);
-
-           
+            this.personList.splice(idx, 1);  
            
         });
         

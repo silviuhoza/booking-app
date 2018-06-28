@@ -4,7 +4,7 @@ $warningTextAlign : center;
 
 
 .admin-login-erros {
-    color:$warningColor; 
-    display:$warningDisplay; 
-    text-align:$warningTextAlign;
+    color:red; 
+    display:block; 
+    text-align:center;
 }

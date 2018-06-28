@@ -15,6 +15,10 @@ import { personAddComponent } from './Person/PersonAdd/PersonAdd.component';
 import { personListComponent } from './Person/PersonList/PersonList.component';
 import { personDetailsComponent } from './Person/PersonDetails/PersonDetails.component';
 
+//DASHBOARD
+import { dashboardListComponent} from './Dashboard/DashboardListServices/DashboardListService.component';
+import {dashboardAddServiceComponent } from './Dashboard/DashoardAddServices/AddService.component';
+
  export default angular.module('Admin', [
      'ngRoute'
  ])
@@ -27,3 +31,5 @@ import { personDetailsComponent } from './Person/PersonDetails/PersonDetails.com
     .component('personAddComponent', personAddComponent)
     .component('personListComponent', personListComponent)
     .component('personDetailsComponent', personDetailsComponent)
+    .component('dashboardListComponent', dashboardListComponent)
+    .component('dashboardAddServiceComponent', dashboardAddServiceComponent)
