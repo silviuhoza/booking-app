@@ -1,8 +1,9 @@
-<div class="row"></div>
+<div class="row" >
 <h1 class="col-md-10">{{$ctrl.title}} </h1>
 <h3 class="col-md-12">Service Details</h3>
 
-<form ng-submit="$ctrl.addService()" >
+</button>
+<form ng-submit="$ctrl.addService()">
 
   <div class="form-row" >
     <div class="form-group col-md-5">
@@ -10,7 +11,7 @@
       <input type="text" class="form-control" id="serviceName" placeholder="Service name" ng-model="$ctrl.service.name">
     </div>
     <div class="form-group col-md-5">
-      <label for="inputPassword4">Service Duration</label>
+      <label for="serviceDuration">Service Duration</label>
 <input type="text" class="form-control" id="serviceDuration" placeholder="Service duration" ng-model="$ctrl.service.duration">
     </div>
   </div>
@@ -22,8 +23,8 @@
     <textarea name="description" id="descriptionService" cols="40" rows="10" ng-model="$ctrl.service.description"></textarea>
     </div>
     <div class="form-group col-md-5">
-      <label for="spaces">Availability</label>
-<input class="form-control" type="date" id="availability" name="availability" ng-model="$ctrl.service.availability">
+<label for="availabilityService">Availability</label>
+<input class="form-control" type="date" id="availabilityService" name="availability" ng-model="$ctrl.service.availability">
     </div>
     <div class="form-group col-md-5">
       <label for="spaces">Spaces</label>
@@ -34,7 +35,8 @@
       <input type="text" class="form-control" id="price" ng-model="$ctrl.service.price">
     </div>
   </div>
-
-<button type="submit" class="btn btn-primary">
-  <i class="fa fa-plus "></i>Add service</button>
+<!-- <div class="clearfix"></div> -->
+<button type="submit" class="btn btn-primary pull-right col-md-1" >
+  <i class="fa fa-plus " style="font-size: 50px;"></i>
 </form>
+</div>

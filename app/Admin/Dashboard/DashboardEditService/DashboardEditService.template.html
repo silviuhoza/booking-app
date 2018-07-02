@@ -1,0 +1,66 @@
+<!-- Modal -->
+<div id="myModalEdit" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit this Service</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="nameService" class="col-lg-2 control-label">Name service</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="nameService" placeholder="Service name" ng-model="$ctrl.clickedService.name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDuration" class="col-lg-2 control-label">Service Duration</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="serviceDuration" placeholder="" ng-model="$ctrl.clickedService.duration">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="descriptionService" class="col-lg-2 control-label">Service description</label>
+            <div class="col-lg-10">
+              <textarea type="text" class="form-control" id="descriptionService" placeholder="Full description" ng-model="$ctrl.clickedService.description"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="availabilityService" class="col-lg-2 control-label">Service Availability </label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="availabilityService" placeholder="" ng-model="$ctrl.clickedService.availability">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="spacesService" class="col-lg-2 control-label">Service spaces </label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="spacesService" placeholder="" ng-model="$ctrl.clickedService.spaces">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="priceService" class="col-lg-2 control-label">Service price </label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="priceService" placeholder="" ng-model="$ctrl.clickedService.price">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-lg-10">
+              <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

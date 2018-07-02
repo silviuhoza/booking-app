@@ -1,28 +1,42 @@
-<nav class="navbar ">
+<nav class="navbar  ">
   <div id="menu-bar" class="container-fluid">
-    <div id="header" class="navbar-header">
-      <a class="navbar-brand" href="#/">Booking App</a>
+    <div id="header" class="navbar-header ">
+      <a class="navbar-brand active btn1" href="#/">Booking App</a>
     </div>
-    <ul >
+    <ul>
 
-      <li>
-        <a href="#/about">About</a>
+      <li class="btn1">
+        <a href="#/profile">Profile</a>
       </li>
-      <li>
-        <a href="#/contact">Contact</a>
+      <li class="btn1">
+        <a href="#/booking">Booking</a>
       </li>
-      <li>
+      <li class="btn1 ">
         <a href="#/dashboard">Dashboard</a>
       </li>
-      <li>
+      <li class="btn1">
         <a href="#/people">People</a>
       </li>
-      <li>
-        <a href="#/person/:id">Person Details</a>
+      <li class="btn1">
+        <a href="#/people/:id">Person Details</a>
       </li>
-      <li>
+      <li class="btn1">
         <a href="#/test">Login page</a>
       </li>
     </ul>
   </div>
 </nav>
+
+<script>
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("menu-bar");
+  var clickedBtn = header.getElementsByClassName("btn1");
+  for (var i = 0; i < clickedBtn.length; i++) {
+    clickedBtn[i].addEventListener("click", function () {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+    });
+  }
+
+</script>

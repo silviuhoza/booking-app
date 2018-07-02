@@ -2,15 +2,16 @@ import template from './AddService.template.html';
 import stylesComponent from './AddService.css';
 
 class AddServiceController {
-    constructor($rootScope) {
+    constructor($scope, $rootScope) {
         this.title = 'Add new service';
         this.service = {};
+        this.$scope = $scope;
         this.$rootScope = $rootScope;
-
+        this.form = true;
     }
 
     $onInit() {
-
+       
 
     }
 
@@ -22,16 +23,16 @@ class AddServiceController {
             'availability': this.service.availability,
             'description': this.service.description,
             'spaces': this.service.spaces,
-            'price': this.service.price
+            'price': this.service.price,
+            'form': false
         });
-        document.getElementById('serviceName').value = '';
-        document.getElementById('serviceDuration').value = '';
-        document.getElementById('availability').value = '';
-        document.getElementById('descriptionService').value = '';
-        document.getElementById('spaces').value = '';
-        document.getElementById('price').value = '';
+       
         this.service = {};
     }
+// hide(){
+//     this.form = false;
+// }
+    
 }
 
 const bindings = {

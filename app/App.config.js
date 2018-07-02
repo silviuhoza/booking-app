@@ -10,14 +10,14 @@ function appConfig($routeProvider, $locationProvider) {
         .when('/people', {
             templateUrl: 'Pages/People.html'
         })
-        .when('/person/:id', {
+        .when('/people/:id', {
             templateUrl: 'Pages/PersonDetails.html'
         })
-        .when('/about', {
-            templateUrl: 'Pages/About.html'
+        .when('/profile', {
+            templateUrl: 'Pages/CompanyProfile.html'
         })
-        .when('/contact', {
-            templateUrl: 'pages/Contact.html'
+        .when('/booking', {
+            templateUrl: 'pages/Booking.html'
         })
         .when('/dashboard', {
             templateUrl: 'pages/Dashboard.html'
