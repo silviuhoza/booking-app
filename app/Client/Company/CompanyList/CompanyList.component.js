@@ -34,7 +34,7 @@ class CompanyListController {
 const bindings = {
 
 };
-export const companyListComponent = {
+export const clientCompanyListComponent = {
     controller: CompanyListController,
     template,
     bindings

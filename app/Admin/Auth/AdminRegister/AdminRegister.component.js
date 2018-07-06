@@ -1,5 +1,5 @@
 import template from './AdminRegister.template.html'
-import componentStyles from './AdminRegister.scss'
+import componentStyles from './AdminRegister.css'
 
 class AdminRegisterController {
     constructor() {
@@ -10,7 +10,7 @@ class AdminRegisterController {
     }
 
     $onInit() {
-        // console.log('hi there, I am', this.componentName);
+        console.log('hi there, I am', this.componentName);
     }
 
     register(event) {

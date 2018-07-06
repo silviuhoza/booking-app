@@ -1,0 +1,182 @@
+<div class="container-fluid center-block">
+  <div class="row center-block">
+    <div class="logo col-lg-6">
+      <img ng-src="{{$ctrl.company.url}}" class=" img-circle "
+        alt="">
+    </div>
+    <div class="company col-lg-6">
+      <h1>{{$ctrl.company.name}}</h1>
+      <p>{{$ctrl.company.description}}</p>
+
+    </div>
+  </div>
+<dashboard-add-service-component></dashboard-add-service-component>
+
+  <div id="card" class="well" ng-repeat="service in $ctrl.services">
+    <div class="row">
+      <div class="col-md-10">
+        <div id="card-header">
+          <h1>{{service.name}}</h1>
+        </div>
+        <div id="card-body">
+          <p>{{service.description}}.</p>
+
+        </div>
+        <div id="info" class="row">
+          <div class="col-md-5">
+            <p class="lead">
+              <strong> {{service.availability | date}} </strong>
+            </p>
+            <p>Availability</p>
+          </div>
+          <div class="col-md-3">
+            <p class="lead">
+              <strong>{{service.spaces}}</strong>
+            </p>
+            <p>Spaces</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong> {{service.duration}} </strong>
+            </p>
+            <p>Duration</p>
+          </div>
+          <div class="col-md-2">
+            <p class="lead">
+              <strong> {{service.price}} </strong>
+            </p>
+            <p>Price</p>
+          </div>
+        </div>
+
+        <button id="bookingBtn" class="btn btn-group-lg col-xs-offset-1 col-md-3" data-toggle="modal" data-target="#bookingModal"
+          ng-click="$ctrl.book()">Book now</button>
+      </div>
+    </div>
+  </div>
+  <my-booking company="$ctrl.company" service="$ctrl.service"></my-booking>
+
+  <!-- Modal -->
+  <div id="bookingModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-1200">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <button type="button" class="btn btn-lg btn-danger pull-right " data-dismiss="modal">
+          <strong>&times;</strong>
+        </button>
+        <h1 class="modal-title text-center">Make your booking</h1>
+        <p class=" text-center text-uppercase">Personal Details</p>
+        <div class="modal-body">
+
+          <form class="form-inline">
+
+            <div class="form-group  col-lg-6">
+              <label for="name" class="col-lg-6 control-label-lg">Name</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="name" placeholder="Name" ng-model="$ctrl.booking.name">
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6 ">
+              <label for="email" class="col-lg-6 control-label-lg">Email</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="email" placeholder="Your email" ng-model="$ctrl.booking.email">
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6 ">
+              <label for="phoneNumber" class="col-lg-6  control-label-lg">Phone Number</label>
+              <div class="col-lg-12">
+                <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="$ctrl.booking.phoneNumber">
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6 ">
+              <div class="col-lg-12 ">
+                <button id="nextBtn" class="btn btn-success btn-group-lg" data-dismiss="modal" ng-click="$ctrl.saveBooking();" data-toggle="modal"
+                  data-target="#myModalCalendar">Next</button>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div id="myModalCalendar" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-1200">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title text-center">Choose your booking date</h1>
+        <p class=" text-center text-uppercase">Booking Information</p>
+        <div class="modal-body">
+          <form class="form-inline">
+            <div class="form-group col-lg-12">
+              <label for="date" class="col-lg-4 control-label-lg">Date</label>
+              <div class="col-sm-10">
+                <input type="date" class="form-control" id="date" ng-model="$ctrl.booking.date">
+              </div>
+            </div>
+
+            <div class="form-group col-lg-6">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button id="sendBooking" class="btn btn-default btn-group-lg" data-dismiss="modal" data-toggle="modal" data-target="#messageModal"
+                  ng-click="$ctrl.sendBooking();">Send Booking</button>
+              </div>
+            </div>
+            <div class="form-group col-lg-6">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button id="back" class="btn btn-default btn-group-lg" data-dismiss="modal" ng-click="$ctrl.back();" data-toggle="modal"
+                  data-target="#bookingModal">Back</button>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal -->
+  <div id="messageModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg modal-1200">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h1 class="modal-title text-center">
+          <i class="fa fa-envelope"></i>
+        </h1>
+        <p class=" text-center text-uppercase">Booking Information</p>
+        <div class="modal-body">
+          <h1 class="text-center">Your request was sent</h1>
+          <p class="text-center">In a couple of seconds an confirmation email will be sent to your email address with all details for your reservation.
+            Thank you for using our services!</p>
+
+
+        </div>
+        <div class=" col-lg-12">
+          <div class="col-lg-offset-3 col-lg-4">
+            <button id="close" class="btn btn-default center-block" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</div>

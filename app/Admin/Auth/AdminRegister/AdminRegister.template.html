@@ -4,33 +4,40 @@
 
     <div class="form-group form-group-lg">
 
-    <label for="" class="control-label">Your name</label>
+      <label for="" class="control-label">Your name</label>
 
-      <input id="registerName" type="text" name="name" placeholder="Your name" class="form-control" ng-model="$ctrl.user.name" ng-required="true">
+      <input id="registerName" type="text" name="name" placeholder="Your name" class="form-control" ng-model="$ctrl.user.name"
+        ng-required="true">
 
-      <div ng-show = "registerForm.name.$touched && registerForm.name.$invalid">
-       <small style="color:red; display:block; text-align:center;">Enter your name, please!</small>
+      <div ng-show="registerForm.name.$touched && registerForm.name.$invalid">
+        <small style="color:red; display:block; text-align:center;">Enter your name, please!</small>
       </div>
 
-    <label for="" class="control-label">Email Address</label>
+      <label for="" class="control-label">Email Address</label>
 
-     <input id="registerEmail" type="email" name="email" placeholder="Your email" class="form-control"         ng-model="$ctrl.user.email"
-     ng-required="true">
+      <input id="registerEmail" type="email" name="email" placeholder="Your email" class="form-control" ng-model="$ctrl.user.email"
+        ng-required="true">
 
-      <div ng-show = "registerForm.email.$touched && registerForm.email.$invalid">
-       <small style="color:red; display:block; text-align:center;">Enter a valid email, please!</small>
+      <div ng-show="registerForm.email.$touched && registerForm.email.$invalid">
+        <small style="color:red; display:block; text-align:center;">Enter a valid email, please!</small>
       </div>
 
-    <label for="" class="control-label">Password</label>
+      <label for="" class="control-label">Password</label>
 
       <input id="registerPassword" type="password" name="password" placeholder="Your password" class="form-control" ng-model="$ctrl.user.password"
         ng-required="true">
 
-       <div ng-show = "registerForm.password.$touched && registerForm.password.$invalid">
+      <div ng-show="registerForm.password.$touched && registerForm.password.$invalid">
         <small style="color:red; display:block; text-align:center;">Enter a password, please!</small>
-       </div>
+      </div>
 
     </div>
-    <button class="btn btn-block btn-success btn-lg"> Register your data</button>
+    <button ng-click="showMessage = true" class="btn btn-block btn-success btn-lg">
+      Register your data
+    </button>
+
+    <p class="lead text-primary" ng-show = "showMessage">Please click the button to continue!
+      <a href="#/login" class="btn btn-info">Continue</a>
+    </p>
   </form>
 </div>

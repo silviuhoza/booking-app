@@ -10,6 +10,7 @@ class PersonDetailsController {
     }
 
     $onInit() {
+       
         this.getPerson();
     }
 

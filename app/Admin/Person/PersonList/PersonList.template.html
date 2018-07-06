@@ -5,5 +5,18 @@
     <p>Last Name: {{ person.lastName }}</p>
     <p>Age: {{ person.age }}</p>
     <button ng-click="$ctrl.deletePerson(person)">delete</button>
+
+    <a ng-href="#/people/{{person.id}}">Person details</a>
+  </li>
+</ul>
+
+
+
+
+<h3>Companies</h3>
+<ul>
+  <li ng-repeat="company in $ctrl.companies">
+    <p>Company name: {{ company.name }}</p>
+    <button ng-click="$ctrl.deletePerson(person)">delete</button>
   </li>
 </ul>

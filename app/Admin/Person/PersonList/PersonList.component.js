@@ -4,12 +4,14 @@ import template from './PersonList.template.html'
 class PersonListController {
     constructor($http, $scope) {
         this.personList = [];
+        this.companies = [];
         this.$http = $http;
         this.$scope = $scope;
     }
 
     $onInit() {
         this.getPeople();
+        this.getCompanies();
         this.$scope.$on('event:PersonAdd', (event, data) => {
             console.log(data)
             this.personList.push(data);
@@ -20,6 +22,14 @@ class PersonListController {
         const url = API.base + API.people
         this.$http.get(url).then((response) => {
             this.personList = response.data;
+        });
+    }
+
+
+    getCompanies(){
+        const url = API.base + API.companies
+        this.$http.get(url).then((response) => {
+            this.companies = response.data;
         });
     }
 
@@ -43,4 +53,5 @@ const bindings = {
 export const personListComponent = {
     controller: PersonListController,
     template,
+    bindings
 }

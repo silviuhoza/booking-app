@@ -1,6 +1,4 @@
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 import template from './PersonAdd.template.html'
 
 class PersonAddController {
@@ -32,4 +30,5 @@ const bindings = {
 export const personAddComponent = {
     controller: PersonAddController,
     template,
+    bindings
 }

@@ -89,7 +89,7 @@ class DashboardListController {
 const bindings = {
 
 }
-export const dashboardListComponent = {
+export const clientDashboardListComponent = {
     controller: DashboardListController,
     controllerAs: '$ctrl',
     template,

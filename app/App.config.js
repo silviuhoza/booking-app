@@ -4,8 +4,20 @@ function appConfig($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
 
     $routeProvider
-        .when('/test', {
-            templateUrl: 'Pages/Test.html'
+        .when('/register', {
+            templateUrl: 'Pages/Register.html'
+        })
+        .when('/login', {
+            templateUrl: 'Pages/Login.html'
+        })
+        .when('/client', {
+            templateUrl: 'Pages/Client.html'
+        })
+        .when('/companies/:id', {
+            templateUrl: 'Pages/ClientCompanyDetails.html'
+        })
+        .when('/admin/companies/:id', {
+            templateUrl: 'Pages/AdminCompanyDetails.html'
         })
         .when('/people', {
             templateUrl: 'Pages/People.html'
@@ -23,8 +35,8 @@ function appConfig($routeProvider, $locationProvider) {
             templateUrl: 'pages/Dashboard.html'
         })
         
-        .otherwise({
-            redirectTo: '/'
+        .otherwise('/client',{
+           templateUrl: 'Pages/Client.html'
         })
 }
 

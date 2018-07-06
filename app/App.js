@@ -3,6 +3,7 @@ import angular from 'angular';
 import appConfig from './App.config'
 import Core from './Core/Main.module';
 import Admin from './Admin/Main.module';
+import Client from './Client/Main.module';
 import Public from './Public/Main.module';
 
 
@@ -20,6 +21,7 @@ angular.module('App', [
         'ngRoute',
         'Core',
         'Admin',
+        'Client',
         'Public'
     ])
     .config(appConfig)

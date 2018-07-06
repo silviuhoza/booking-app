@@ -34,7 +34,7 @@ class DashboardEditServiceController {
 const bindings = {
 
 }
-export const dashboardEditServiceComponent = {
+export const clientDashboardEditServiceComponent = {
     controller: DashboardEditServiceController,
     template,
     bindings

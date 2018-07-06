@@ -1,5 +1,5 @@
 import template from './AdminRecover.template.html'
-import componentStyles from './AdminRecover.scss'
+import componentStyles from './AdminRecover.css'
 
 class AdminRecoverController {
     constructor() {

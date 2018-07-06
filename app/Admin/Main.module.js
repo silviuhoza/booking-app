@@ -23,6 +23,7 @@ import {dashboardEditServiceComponent} from './Dashboard/DashboardEditService/Da
 // Company
 import { companyAddComponent } from './Company/CompanyAdd/CompanyAdd.component';
 import { companyListComponent } from './Company/CompanyList/CompanyList.component';
+import { companyDetailsComponent } from './Company/CompanyDetails/CompanyDetails.component';
 
  export default angular.module('Admin', [
      'ngRoute'
@@ -40,4 +41,5 @@ import { companyListComponent } from './Company/CompanyList/CompanyList.componen
     .component('dashboardAddServiceComponent', dashboardAddServiceComponent)
     .component('dashboardEditServiceComponent', dashboardEditServiceComponent)
     .component('companyAddComponent', companyAddComponent)
-.component('companyListComponent', companyListComponent)
+    .component('companyListComponent', companyListComponent)
+    .component('companyDetailsComponent', companyDetailsComponent)
