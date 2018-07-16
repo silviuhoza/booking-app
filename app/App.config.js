@@ -19,6 +19,9 @@ function appConfig($routeProvider, $locationProvider) {
         .when('/admin/companies/:id', {
             templateUrl: 'Pages/AdminCompanyDetails.html'
         })
+        .when('/admin/companies/:id/servicelist', {
+            templateUrl: 'Pages/AdminServiceList.html'
+        })
         .when('/people', {
             templateUrl: 'Pages/People.html'
         })
@@ -26,7 +29,7 @@ function appConfig($routeProvider, $locationProvider) {
             templateUrl: 'Pages/PersonDetails.html'
         })
         .when('/profile', {
-            templateUrl: 'Pages/CompanyProfile.html'
+            templateUrl: 'Pages/MyCompany.html'
         })
         .when('/booking', {
             templateUrl: 'pages/Booking.html'

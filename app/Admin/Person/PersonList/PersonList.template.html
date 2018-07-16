@@ -4,6 +4,13 @@
     <p>First Name: {{ person.firstName }}</p>
     <p>Last Name: {{ person.lastName }}</p>
     <p>Age: {{ person.age }}</p>
+    <p> {{ person.address.city }}</p>
+    <p> {{ person.address.state }} </p>
+
+    <p ng-repeat="street in $ctrl.street"> {{ street.name }} </p>
+    <span> {{ street.number }} </span>
+    <span> {{ street.code }} </span>
+
     <button ng-click="$ctrl.deletePerson(person)">delete</button>
 
     <a ng-href="#/people/{{person.id}}">Person details</a>

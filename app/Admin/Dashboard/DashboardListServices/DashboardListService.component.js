@@ -1,31 +1,16 @@
 import template from './DashboardListService.template.html';
 import componentStyles from './DashboardListService.css';
+import { API } from '../../../Api';
 
 class DashboardListController {
-    constructor($scope, $rootScope) {
-        this.service = [{
-                name: 'Tuns',
-                description: "Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective. Nu doar că a supravieţuit timp de cinci secole, dar şi a facut saltul în tipografia electronică practic neschimbată. A fost popularizată în anii  odată cu ieşirea colilor Letraset care conţineau pasaje Lorem Ipsum, iar mai recent, prin programele de publicare pentru calculator, ca Aldus PageMaker care includeau versiuni de Lorem Ipsum",
-                availability: 'Jun, 30 2018',
-                duration: '1 hour',
-                spaces: '3 locuri',
-                price: '23 de lei'
-            },
-            {
-                name: 'Coafura',
-                description: "Lorem Ipsum este pur şi simplu o machetă pentru text a industriei tipografice. Lorem Ipsum a fost macheta standard a industriei încă din secolul al XVI-lea, când un tipograf anonim a luat o planşetă de litere şi le-a amestecat pentru a crea o carte demonstrativă pentru literele respective. Nu doar că a supravieţuit timp de cinci secole, dar şi a facut saltul în tipografia electronică practic neschimbată. ",
-                availability: 'Jun, 14 2018',
-                duration: '1.5 hour',
-                spaces: '3 locuri',
-                price: '45 de lei'
-            }
-        ];
+    constructor($scope, $rootScope, $http, $routeParams) {
+        
+        this.services = [];
+        this.company = {};
         this.$scope = $scope;
         this.$rootScope = $rootScope;
-        this.form = true;
-
-
-
+        this.$routeParams = $routeParams;
+        this.$http = $http;
 
     }
 
@@ -36,10 +21,7 @@ class DashboardListController {
             this.service.unshift(data);
             console.log(this.service);
             this.form = data.form;
-
-
         });
-
 
         this.$scope.$on('event:editDataService', (event, editData, id) => {
             console.log(editData);
@@ -54,22 +36,40 @@ class DashboardListController {
                 'description': editData.description,
                 'spaces': editData.spaces,
                 'price': editData.price
-
             };
         });
 
+            this.getServices();
 
     }
-
+    getServices(){
+        const url = `${API.base}${API.companies}/${this.$routeParams.id}`;
+        this.$http.get(url).then((response) =>{
+            this.company = response.data;
+            this.services = response.data.services;
+            console.log(this.services, this.company);
+            
+        })
+    }
 
     delete(service) {
-        var id = this.service.indexOf(service);
-        this.service.splice(id, 1);
+        var id = this.services.indexOf(service);
+        this.services.splice(id, 1);
+    }
+    deleteService(service) {
+         var id = this.services.indexOf(service);
+         this.company.services.splice(id, 1);
+         console.log(this.company.services);
+         
+        const url = `${API.base}${API.companies}/${this.company.id}`;
+        this.$http.put(url, this.company).then((response) => {
+           
+        });
+
     }
     selectService(service) {
-        var id = this.service.indexOf(service)
+        var id = this.services.indexOf(service);
         this.clickedService = service;
-
 
         this.$rootScope.$broadcast('event:editService', {
             'name': service.name,
@@ -80,6 +80,16 @@ class DashboardListController {
             'price': service.price
 
         }, id);
+    }
+
+    done(){
+        console.log('salut ');
+        this.company.services = this.services;
+         console.log(this.company.services);
+         const url = `${API.base}${API.companies}/${this.$routeParams.id}`;
+         this.$http.put(url, this.company).then((response) => {
+            //  this.services = response.data.services;
+         });
     }
 
 }

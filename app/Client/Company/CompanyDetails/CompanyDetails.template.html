@@ -50,7 +50,7 @@
         </div>
 
         <button id="bookingBtn" class="btn btn-group-lg col-xs-offset-1 col-md-3" data-toggle="modal" data-target="#bookingModal"
-          ng-click="$ctrl.book()">Book now</button>
+         ng-click="$ctrl.bookNumber(service,$index)" >Book now</button>
       </div>
     </div>
   </div>
@@ -130,7 +130,7 @@
             <div class="form-group col-lg-6">
               <div class="col-sm-offset-2 col-sm-10">
                 <button id="sendBooking" class="btn btn-default btn-group-lg" data-dismiss="modal" data-toggle="modal" data-target="#messageModal"
-                  ng-click="$ctrl.sendBooking();">Send Booking</button>
+                  ng-click="$ctrl.sendBooking(service,$index);">Send Booking</button>
               </div>
             </div>
             <div class="form-group col-lg-6">

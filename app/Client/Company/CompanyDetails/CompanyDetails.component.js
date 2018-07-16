@@ -9,7 +9,7 @@ class CompanyDetailsController {
         this.$routeParams = $routeParams;
         this.booking = {};
         this.company = {};
-        this.service = {};
+        this.services = [];
     }
 
     $onInit() {
@@ -31,19 +31,40 @@ class CompanyDetailsController {
          const url = `${API.base}${API.companies}/${this.$routeParams.id}`
         this.$http.get(url).then((response) => {
             this.services = response.data.services;
-            console.log(response.data.services);
-
+            console.log(this.services);
         });
     }
 
-
+    bookNumber(service,id){
+        console.log(id);
+        
+        console.log('hello this is:', service);
+        this.service = service;
+        this.serviceId = this.services.indexOf(service);
+        console.log(this.serviceId);
+        
+    }
     saveBooking() {
         console.log(this.booking);
-
+        
     }
     sendBooking() {
-        console.log(this.booking);
-        this.booking = {};
+       
+        this.booking.serviceId = this.serviceId;
+        const url = API.base + API.bookings;
+        this.booking.companyId = this.$routeParams.id;
+       
+        console.log(this.booking.companyId);
+        console.log(this.booking.serviceId);
+        
+        this.$http.post(url, this.booking).then((response) => {
+            console.log(response.data);    
+        });
+
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phoneNumber').value = '';
+        document.getElementById('date').value = '';
 
     }
 }

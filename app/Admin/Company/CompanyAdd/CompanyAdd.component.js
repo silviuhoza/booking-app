@@ -53,11 +53,11 @@ class CompanyAddController {
 
         });
     }
-    cancel() {
-        this.company = {};
-        console.log('salut din cancel');
+    // cancel() {
+    //     this.company = {};
+    //     console.log('salut din cancel');
 
-    }
+    // }
 }
 
 

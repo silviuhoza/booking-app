@@ -1,26 +1,19 @@
 <div class="container">
 
-  <div class="row">
-    <p class="col-xs-offset-5 col-md-3">
-      <a href="" ng-click="showForm  = $ctrl.form" id="add-service" class="btn btn-group-lg">New Service</a>
 
-    </p>
-  </div>
 
-  <dashboard-add-service-component ng-show="showForm == $ctrl.form"></dashboard-add-service-component>
-
-  <div id="card" class="well" ng-repeat="service in $ctrl.service">
+  <div id="card" class="well" ng-repeat="service in $ctrl.services">
     <div class="row">
       <div class="col-md-10">
         <div id="card-header">
           <h1>{{service.name}}
             <span class="pull-right">
-              <a href="" ng-click="$ctrl.delete(service)">
+              <a href="" ng-click="$ctrl.deleteService(service)">
                 <i class="fa fa-trash-alt"></i>
               </a>
             </span>
             <span class="pull-right">
-<a data-toggle="modal" data-target="#myModalEdit">
+          <a data-toggle="modal" data-target="#myModalEdit">
                 <i class="fa fa-pencil-alt" ng-click="$ctrl.selectService(service)"></i>
               </a>
             </span>
@@ -33,7 +26,7 @@
         <div id="info" class="row">
           <div class="col-md-5">
             <p class="lead">
-              <strong> {{service.availability | date}} </strong>
+              <strong> {{service.availability }} </strong>
             </p>
             <p>Availability</p>
           </div>
@@ -96,7 +89,7 @@
             <div class="form-group">
               <label for="availabilityService" class="col-lg-2 control-label">Service Availability </label>
               <div class="col-lg-10">
-                <input type="date" class="form-control" id="availabilityService" placeholder="" ng-model="$ctrl.clickedService.availability">
+                <input type="text" class="form-control" id="availabilityService" placeholder="" ng-model="$ctrl.clickedService.availability">
               </div>
             </div>
             <div class="form-group">
@@ -114,7 +107,7 @@
 
             <div class="form-group">
               <div class="col-sm-offset-2 col-lg-10">
-                <button type="button" class="btn btn-success" data-dismiss="modal">Done</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="$ctrl.done()">Done</button>
               </div>
             </div>
           </form>
