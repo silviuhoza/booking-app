@@ -13,7 +13,7 @@
               </a>
             </span>
             <span class="pull-right">
-          <a data-toggle="modal" data-target="#myModalEdit">
+              <a data-toggle="modal" data-target="#myModalEdit">
                 <i class="fa fa-pencil-alt" ng-click="$ctrl.selectService(service)"></i>
               </a>
             </span>
@@ -48,6 +48,12 @@
             </p>
             <p>Price</p>
           </div>
+          <div class="col-md-12">
+            <p class="lead">
+<a href="#/admin/companies/{{$ctrl.company.id}}/bookinglist/{{$ctrl.serviceId}}" ng-click="$ctrl.gotId(service)"> Bookings for this service</a>
+            </p>
+            <p>Price</p>
+          </div>
         </div>
       </div>
     </div>
@@ -55,11 +61,11 @@
 
 
   <!-- Modal -->
-<div id="myModalEdit" class="modal fade" role="dialog">
-<div class="modal-dialog modal-lg ">
+  <div id="myModalEdit" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg ">
 
 
-<div class="modal-content">
+      <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit this Service</h4>
@@ -119,8 +125,8 @@
       </div>
 
     </div>
-</div>
+  </div>
 
 
-<dashboard-edit-service-component></dashboard-edit-service-component>
+  <dashboard-edit-service-component></dashboard-edit-service-component>
 </div>

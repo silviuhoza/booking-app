@@ -1,3 +1,25 @@
 <div class="jumbotron">
-  <h3>Hi there, I'm {{ $ctrl.componentName }}</h3>
+  <h3> {{ $ctrl.name }}</h3>
+  <button class="btn btn-default" ng-click="$ctrl.date()">Order by Date</button>
+  <table class="table  table-hover ">
+    <thead >
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Date </th>
+        <th>Service </th>
+        <th>Duration </th>
+      </tr>
+
+    </thead>
+    <tr ng-repeat="book in $ctrl.bookings2 | orderBy : $ctrl.date">
+      <td>{{book.name}}</td>
+      <td>{{book.email}}</td>
+      <td>{{book.phoneNumber}}</td>
+      <td>{{book.date | date}}</td>
+      <td>{{$ctrl.serviceName}}</td>
+      <td>{{$ctrl.serviceDuration}}</td>
+    </tr>
+  </table>
 </div>

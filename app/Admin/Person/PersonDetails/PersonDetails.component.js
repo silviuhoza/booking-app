@@ -35,7 +35,11 @@ class PersonDetailsController {
             
             this.person = response.data;
             
-        })
+        });
+        const ur = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
+        this.$http.post(ur, this.person).then((response) => {
+            console.log(response.data);
+        });
     }
 }
 

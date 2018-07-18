@@ -52,10 +52,14 @@ class DashboardListController {
         })
     }
 
-    delete(service) {
-        var id = this.services.indexOf(service);
-        this.services.splice(id, 1);
+    gotId(service){
+        this.serviceId = this.services.indexOf(service);
+        console.log(this.serviceId);
+        // console.log(service.name);
+       
+      
     }
+
     deleteService(service) {
          var id = this.services.indexOf(service);
          this.company.services.splice(id, 1);
@@ -88,7 +92,7 @@ class DashboardListController {
          console.log(this.company.services);
          const url = `${API.base}${API.companies}/${this.$routeParams.id}`;
          this.$http.put(url, this.company).then((response) => {
-            //  this.services = response.data.services;
+            
          });
     }
 
