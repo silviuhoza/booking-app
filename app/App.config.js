@@ -5,22 +5,25 @@ function appConfig($routeProvider, $locationProvider) {
 
     $routeProvider
         .when('/register', {
-            templateUrl: 'Pages/Register.html'
+            templateUrl: 'Pages/AdminPages/Register.html'
         })
         .when('/login', {
-            templateUrl: 'Pages/Login.html'
+            templateUrl: 'Pages/AdminPages/Login.html'
         })
         .when('/client', {
-            templateUrl: 'Pages/Client.html'
+            templateUrl: 'Pages/ClientPages/Client.html'
         })
         .when('/companies/:id', {
-            templateUrl: 'Pages/ClientCompanyDetails.html'
+            templateUrl: 'Pages/ClientPages/ClientCompanyDetails.html'
         })
         .when('/admin/companies/:id', {
-            templateUrl: 'Pages/AdminCompanyDetails.html'
+            templateUrl: 'Pages/AdminPages/AdminCompanyDetails.html'
         })
         .when('/admin/companies/:id/servicelist', {
-            templateUrl: 'Pages/AdminServiceList.html'
+            templateUrl: 'Pages/AdminPages/AdminServiceList.html'
+        })
+        .when('/admin/companies/:id/bookinglist/:serviceId', {
+            templateUrl: 'Pages/AdminPages/Booking.html'
         })
         .when('/people', {
             templateUrl: 'Pages/People.html'
@@ -35,11 +38,11 @@ function appConfig($routeProvider, $locationProvider) {
             templateUrl: 'pages/Booking.html'
         })
         .when('/dashboard', {
-            templateUrl: 'pages/Dashboard.html'
+            templateUrl: 'pages/AdminPages/Dashboard.html'
         })
         
         .otherwise('/client',{
-           templateUrl: 'Pages/Client.html'
+           templateUrl: 'Pages/ClientPages/Client.html'
         })
 }
 
