@@ -36,10 +36,20 @@ class PersonDetailsController {
             this.person = response.data;
             
         });
-        const ur = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
-        this.$http.post(ur, this.person).then((response) => {
-            console.log(response.data);
-        });
+        // const ur = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
+        // this.$http.post(ur, this.person).then((response) => {
+        //     console.log(response.data);
+        // });
+
+
+        // const ur1 = `${API.base}${API.posts}/${this.$routeParams.id}/${API.comments}`;
+        // this.$http.post(ur1, this.person.street).then((response) => {
+        //     console.log(response.data);
+        // });
+         const ur2 = `${API.base}${API.posts}/${this.$routeParams.id}/${API.comments}`;
+         this.$http.post(ur2, this.person).then((response) => {
+             console.log(response.data);
+         });
     }
 }
 

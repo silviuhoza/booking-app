@@ -23,14 +23,25 @@ class AdminBookingController {
     }
     getservices() {
 
-        const url = `${API.base}${API.companies}/${this.$routeParams.id}`
+        const url = `${API.base}${API.services}`
         this.$http.get(url).then((response) => {
             this.companyId = response.data.id;
+
             this.serviceId = Number(this.$routeParams.serviceId);
-            this.services = response.data.services;
+            console.log(this.serviceId);
+
+            var id = this.$routeParams.id;
+            console.log(id);
+            this.services = response.data.filter((service) => {
+                if (service.companyId === id ) {
+                    return true;
+                }
+            });
+            console.log(this.services);
+            
             this.serviceName = this.services[this.$routeParams.serviceId].name;
             this.serviceDuration = this.services[this.$routeParams.serviceId].duration;
-            console.log(this.services[this.$routeParams.serviceId].name);
+            console.log(this.services);
             console.log(this.companyId);
             console.log(this.serviceId);
 

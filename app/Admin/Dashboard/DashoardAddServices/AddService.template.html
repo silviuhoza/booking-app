@@ -1,6 +1,6 @@
 <h1>Your company profile :</h1>
-<div class="container-fluid center-block">
-  <div class="row  center-block">
+<div class="container-fluid ">
+  <div class="row ">
 
     <div class="well col-lg-4">
       <h1>{{$ctrl.company.name}}</h1>
@@ -12,67 +12,115 @@
         </a>
       </span>
       <span class="pull-right">
-        <!-- <a data-toggle="modal" data-target="#myModalEdit">
+        <a data-toggle="modal" data-target="#myModalEdit">
           <i class="fa fa-pencil-alt" ng-click="$ctrl.selectCompany(company)"></i>
-        </a> -->
+        </a>
       </span>
+
+      <a href="#/admin/companies/{{$ctrl.company.id}}/servicelist" class="btn btn-info">Details about your services </a>
     </div>
 
-    <div class="well col-lg-6" ng-repeat="service in $ctrl.company.services track by $index">
-      <h1>{{service.name}}</h1>
 
-      <p>{{service.description}}</p>
 
-      <p>
-        <a href="#/admin/companies/{{$ctrl.company.id}}/servicelist">Details about your service </a>
-      </p>
+    <div class="row col-lg-8">
+      <h1 class="col-md-10">{{$ctrl.title}} </h1>
+      <h3 class="col-md-12">Complete The Service Details</h3>
+
+      </button>
+      <form ng-submit="$ctrl.addService()">
+
+        <div class="form-row">
+          <div class="form-group col-md-5">
+            <label for="serviceName" class="control-label">Service name</label>
+            <input type="text" class="form-control" id="serviceName" placeholder="Service name" ng-model="$ctrl.service.name">
+          </div>
+          <div class="form-group col-md-5">
+            <label for="serviceDuration">Service Duration</label>
+            <input type="text" class="form-control" id="serviceDuration" placeholder="Service duration" ng-model="$ctrl.service.duration">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-5">
+            <label for="description">Service description</label>
+            <br>
+            <textarea name="description" id="serviceDescription" cols="60" rows="4" ng-model="$ctrl.service.description" class="form-control"></textarea>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="availabilityService">Availability</label>
+            <input class="form-control" type="text" id="serviceAvailability" name="availability" ng-model="$ctrl.service.availability">
+          </div>
+          <div class="form-group col-md-5">
+            <label for="spaces">Spaces</label>
+            <input class="form-control" type="text" id="serviceSpaces" name="spaces" ng-model="$ctrl.service.spaces">
+          </div>
+          <div class="form-group col-md-5">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="servicePrice" ng-model="$ctrl.service.price">
+          </div>
+        </div>
+        <!-- <div class="clearfix"></div> -->
+        <button type="submit" class="btn btn-primary pull-right col-md-1">
+
+          <i class="fa fa-plus " style="font-size: 40px;"></i>
+
+
+      </form>
+    </div>
+
+  </div>
+
+
+
+<!-- Modal -->
+<div id="myModalEdit" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg ">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Your company</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="nameService" class="col-lg-2 control-label">Company Name</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="companyName" placeholder="Company name" ng-model="$ctrl.selectedCompany.name">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceDuration" class="col-lg-2 control-label">Company Image</label>
+            <div class="col-lg-10">
+              <input type="text" class="form-control" id="companyImage" placeholder="" ng-model="$ctrl.selectedCompany.url">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="companyDescription" class="col-lg-2 control-label">Company description</label>
+            <div class="col-lg-10">
+              <textarea type="text" class="form-control" id="companyDescription" placeholder="Full description" ng-model="$ctrl.selectedCompany.description"></textarea>
+            </div>
+          </div>
+          
+         
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-lg-10">
+              <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="$ctrl.done()">Done</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
     </div>
 
   </div>
 </div>
-<div class="row">
-  <h1 class="col-md-10">{{$ctrl.title}} </h1>
-  <h3 class="col-md-12">Complete The Service Details</h3>
 
-  </button>
-  <form ng-submit="$ctrl.addService()">
-
-    <div class="form-row">
-      <div class="form-group col-md-5">
-        <label for="serviceName" class="control-label">Service name</label>
-        <input type="text" class="form-control" id="serviceName" placeholder="Service name" ng-model="$ctrl.service.name">
-      </div>
-      <div class="form-group col-md-5">
-        <label for="serviceDuration">Service Duration</label>
-        <input type="text" class="form-control" id="serviceDuration" placeholder="Service duration" ng-model="$ctrl.service.duration">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group col-md-5">
-        <label for="description">Service description</label>
-        <br>
-        <textarea name="description" id="serviceDescription" cols="65" rows="4" ng-model="$ctrl.service.description"></textarea>
-      </div>
-      <div class="form-group col-md-5">
-        <label for="availabilityService">Availability</label>
-        <input class="form-control" type="text" id="serviceAvailability" name="availability" ng-model="$ctrl.service.availability">
-      </div>
-      <div class="form-group col-md-5">
-        <label for="spaces">Spaces</label>
-        <input class="form-control" type="text" id="serviceSpaces" name="spaces" ng-model="$ctrl.service.spaces">
-      </div>
-      <div class="form-group col-md-5">
-        <label for="price">Price</label>
-        <input type="text" class="form-control" id="servicePrice" ng-model="$ctrl.service.price">
-      </div>
-    </div>
-    <!-- <div class="clearfix"></div> -->
-    <button type="submit" class="btn btn-primary pull-right col-md-1">
-
-      <i class="fa fa-plus " style="font-size: 50px;"></i>
-
-
-  </form>
 </div>
-<!-- <dashboard-edit-service-component></dashboard-edit-service-component> -->

@@ -1,0 +1,37 @@
+/* .borderless {
+    border: none !important;
+} */
+table,th,td {
+    
+    border-collapse: collapse;
+}
+th,td {
+    padding: 5px;
+    text-align: left;
+}
+
+
+button {
+    text-decoration: none !important;
+    display: inline-block;
+    /* padding: 8px 16px; */
+    /* color:#CA7DE5; */
+}
+
+button:hover {
+    color: rgb(26, 109, 204);
+}
+
+.round {
+    border-radius: 10%;
+}
+
+i{
+    /* color: #CA7DE5; */
+    font-size: 45px;
+}
+
+.cal{
+    color: #CA7DE5;
+    font-weight: bolder;
+}
