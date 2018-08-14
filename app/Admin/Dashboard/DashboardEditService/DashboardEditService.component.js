@@ -11,54 +11,69 @@ class DashboardEditServiceController {
         this.$http = $http;
         this.$routeParams = $routeParams;
         this.company = {};
-        
+        this.test = "hello from edit"
+
     }
     $onInit() {
         this.$scope.$on('event:editService', (event, data, id) => {
 
-            this.clickedService = data;
-            console.log(this.clickedService);
+            this.selectService = data;
+            console.log(this.selectService);
             console.log(id);
             this.id = id;
         });
-        this.getCompany();
+        // this.getServices();
+        // this.selectService();
+        console.log(this.$routeParams.id);
+        this.nimu = this.selectService;
+        console.log(this.nimu);
+        
+
 
     }
-    getCompany() {
-        const url = `${API.base}${API.companies}/${this.$routeParams.id}`
+    getServices() {
+        const url = `${API.base}${API.services}`
         this.$http.get(url).then((response) => {
-            this.company = response.data;
-            this.serv = this.company.services;
+            this.services = response.data;
+            this.serv = this.services.filter((serv) => {
+                if (serv.companyId === this.$routeParams.id) {
+                    return true;
+                }
+            });
             console.log(this.serv);
-            // this.clickedService = this.serv;
+            // this.selectService = this.serv;
         });
     }
-   
+
 
     done() {
-        this.company.services = this.services;
-        console.log(this.company.services);
-        const url = `${API.base}${API.companies}/${this.$routeParams.id}`;
-        this.$http.put(url, this.company).then((response) => {
-            //  this.services = response.data.services;
+        this.Service = this.selectService;
+        this.Service.companyId = this.$routeParams.id;
+        console.log(this.selectService);
+        const url = `${API.base}${API.services}/${this.id}`;
+        this.$http.put(url, this.Service).then((response) => {
+            console.log(response.data);
+
         });
     }
 
-    done1() {
-        this.$rootScope.$broadcast('event:editDataService', {
-            'name': this.clickedService.name,
-            'duration': this.clickedService.duration,
-            'availability': this.clickedService.availability,
-            'description': this.clickedService.description,
-            'spaces': this.clickedService.spaces,
-            'price': this.clickedService.price
+    selectService(service) {
+        this.exem = service;
+        console.log(this.exem);
 
-        }, this.id);
+    }
+
+    sayHelloFromThisComponent() {
+        this.sayHello();
+
     }
 
 }
 const bindings = {
-
+    selectService: '<',
+    service:'<',
+    sayHello: '&',
+    test: '@'
 }
 export const dashboardEditServiceComponent = {
     controller: DashboardEditServiceController,

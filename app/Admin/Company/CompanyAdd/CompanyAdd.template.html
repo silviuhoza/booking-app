@@ -1,40 +1,55 @@
-<p>{{ $ctrl.user }}</p>
-<div class="form">
+<!-- <p>{{ $ctrl.user.name }}</p>
+<p>{{ $ctrl.user.email }}</p> -->
+<h2> {{$ctrl.title}} </h2>
+<div class="row">
   <form ng-submit="$ctrl.addCompany()">
-    <div class="row">
+    <div class="form">
       <div class="form-row col-lg-6">
-        <div class="form-group col-md-12">
+        <div class="form-group col-md-9">
           <label for="companyUrlImage">Company image</label>
           <input type="text" class="form-control" id="companyUrlImage" placeholder="Company image url" ng-model="$ctrl.company.url">
         </div>
 
-        <div class="form-row col-lg-6">
-          <div class="form-group col-md-12">
-            <label for="companyName">Company name</label>
-            <input type="text" class="form-control" id="companyName" placeholder="Company name" ng-model="$ctrl.company.name">
-          </div>
-          <div class="form-group col-md-12">
-            <label for="description">Company description</label>
-            <br>
-            <textarea name="description" id="descriptionCompany" cols="40" rows="6" ng-model="$ctrl.company.description"></textarea>
-          </div>
 
-          <div class="buttons col-lg-12">
+        <div class="form-group col-md-12">
+          <label for="companyName">Company name</label>
+          <input type="text" class="form-control" id="companyName" placeholder="Company name" ng-model="$ctrl.company.name">
+        </div>
+        <div class="form-group col-md-12">
+          <label for="description">Company description</label>
+          <br>
+          <textarea name="description" id="descriptionCompany" cols="40" rows="6" ng-model="$ctrl.company.description"></textarea>
+        </div>
 
-            <button ng-click=" showProfile = true" id="save" class="btn btn-primary btn-lg  col-lg-4 ">
-              Save
-            </button>
+        <div class="buttons col-lg-12">
 
-            <button ng-click="$ctrl.cancel()" id="cancel" class="btn btn-primary btn-lg col-lg-offset-1 col-lg-4">Cancel</button>
-          </div>
+          <button ng-click=" showProfile = true" id="save" class="btn btn-primary btn-lg  col-lg-4 ">
+            Save
+          </button>
+
+          <button ng-click="$ctrl.cancel()" id="cancel" class="btn btn-primary btn-lg col-lg-offset-1 col-lg-4">Cancel</button>
         </div>
       </div>
+
+    </div>
   </form>
+
+  <div class="col-lg-6">
+    <button class="btn btn-primary" ng-click="showCompanies = !showCompanies">Show Your Companies</button>
+    <br>
+    <div ng-show="showCompanies" class="well" ng-repeat="company in $ctrl.userCompanies">
+      <h2> {{company.name}} </h2>
+      <img src="{{company.url}}" class="img-responsive img-circle">
+      <p class="lead">{{company.description}}</p>
+      <a href="#/admin/companies/{{company.id}}" class="btn btn-primary">Details about this company</a>
+    </div>
+
   </div>
-  <div class="well" ng-show="showProfile">
-    <h2>{{$ctrl.title}}</h2>
-    <img class="img-circle" ng-src="{{$ctrl.company.url}}" alt="">
-    <h1>{{$ctrl.company.name}}</h1>
-    <p class="lead text-info">{{$ctrl.company.description}}</p>
-<a class="btn btn-block btn-link btn-primary" href="#/admin/companies/{{$ctrl.idAdd}}">Add some service</a>
-  </div>
+</div>
+<div class="well" ng-show="showProfile">
+  <h2>{{$ctrl.title}}</h2>
+  <img class="img-circle" ng-src="{{$ctrl.company.url}}" alt="">
+  <h1>{{$ctrl.company.name}}</h1>
+  <p class="lead text-info">{{$ctrl.company.description}}</p>
+  <a class="btn btn-block btn-link btn-primary" href="#/admin/companies/{{$ctrl.idAdd}}">Add some service</a>
+</div>

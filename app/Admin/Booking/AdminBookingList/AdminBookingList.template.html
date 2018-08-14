@@ -7,7 +7,7 @@
       <br>
       <span>Perv. Week</span>
     </button>
-    <p class="lead cal col-lg-offset-2 col-lg-2"> 3 - 7 July</p>
+    <p class="lead cal col-lg-offset-2 col-lg-2"> {{$ctrl.month}}</p>
     <button class=" btn btn-link pull-right round  col-lg-2 col-lg-offset-2">
       <i class="fa fa-chevron-right"></i>
       <br>
@@ -18,21 +18,40 @@
 
 
 
-  <table class="table table-hover  table-striped " ng-repeat="book in $ctrl.bookings ">
+  <table class="table table-hover " ng-repeat="day in $ctrl.date ">
 
 
 
-    <tbody>
-      
-        <td class="lead cal"> {{book.date |date }} </td>
-      
-      <tr>
-        <td>{{book.name}}</td>
-        <td>{{book.email}}</td>
-        <td>{{book.phoneNumber}}</td>
-        <!-- <td>{{book.date | date}}</td> -->
+    <tbody ng-if="day.list.length">
+
+      <td>
+         {{ day.dayName }}
+      </td>
+      <tr ng-repeat="booking in day">
+        <td>{{ booking[0].name }} </td>
+        <td>{{ booking[0].email }} </td>
+        <td>{{ booking[0].phoneNumber }} </td>
+        <td>{{ booking[0].date | date : "hh:mm" }} </td>
         <td>{{$ctrl.serviceName}}</td>
       </tr>
+
+
     </tbody>
   </table>
 </div>
+
+<!-- <h2>BOOKINGS </h2>
+<div ng-repeat="day in $ctrl.date">
+
+  <div ng-if="day.list.length">
+    <h2>
+      DAY: {{ day.dayName }}
+    </h2>
+    <ul ng-repeat="booking in day">
+      <li>
+        {{ booking[0].name }} {{ booking[0].email }}
+      </li>
+    </ul>
+  </div> 
+
+</div> -->

@@ -159,22 +159,19 @@ class DashboardListController {
 
         });
 
-
-
-
-
         const url = `${API.base}${API.services}/${service.id}`;
         this.$http.delete(url).then((response) => {
-           console.log(this.services, 'am fost sters');
+            console.log(this.services, 'am fost sters');
 
         });
 
 
     }
     selectService(service) {
-        console.log(this.id);
+        // console.log(this.id);
         this.clickedService = service;
-
+        // console.log(service);
+        
         var id = this.services.indexOf(service);
         this.id = service.id;
 
@@ -187,7 +184,7 @@ class DashboardListController {
             'spaces': service.spaces,
             'price': service.price
 
-        }, id);
+        }, service.id);
     }
 
     done() {
@@ -198,11 +195,18 @@ class DashboardListController {
         });
     }
 
+    sayHello() {
+        // debugger;
+        alert('Hello from services list component');
+    }
+
 }
 
 
 
 const bindings = {
+service : '<',
+test: '@',
 
 }
 export const dashboardListComponent = {

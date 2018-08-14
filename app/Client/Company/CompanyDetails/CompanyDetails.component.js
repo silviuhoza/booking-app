@@ -82,9 +82,9 @@ class CompanyDetailsController {
         console.log(this.booking.hours);
         
 
-        // this.$http.post(url, this.booking).then((response) => {
-        //     console.log(response.data);    
-        // });
+        this.$http.post(url, this.booking).then((response) => {
+            console.log(response.data);    
+        });
         const urlDate = API.base + API.dates;
         this.$http.post(urlDate, this.booking).then((response) => {
             console.log(response.data);
@@ -95,7 +95,7 @@ class CompanyDetailsController {
         document.getElementById('email').value = '';
         document.getElementById('phoneNumber').value = '';
         document.getElementById('book-time').value = '';
-        document.getElementById('book-hours').value = '';
+        // document.getElementById('book-hours').value = '';
 
     }
 }

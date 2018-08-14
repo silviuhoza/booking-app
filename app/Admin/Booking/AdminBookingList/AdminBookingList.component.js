@@ -1,8 +1,6 @@
 import template from './AdminBookingList.template.html';
 import componentStyles from './AdminBookingList.css';
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 
 class AdminBookingListController {
     constructor($http, $routeParams, $scope) {
@@ -44,7 +42,6 @@ class AdminBookingListController {
             this.serviceName = this.services[this.$routeParams.serviceId].name;
             this.serviceDuration = this.services[this.$routeParams.serviceId].duration;
             console.log(this.services);
-            console.log(this.companyId);
             console.log(this.serviceId);
 
 
@@ -67,28 +64,80 @@ class AdminBookingListController {
                     return true;
                 }
             });
-            console.log(this.bookings);
-            this.date = this.bookings.map(element => {
-                console.log(element.date);
 
-                var options = {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                };
+            let bookingsCopy = this.bookings;
+            this.date = this.bookings.map(booking => {
+                let bookingDate = {};
+                // console.log(new Date(booking.date).getHours(),':', new Date(booking.date).getMinutes());
+                
+                bookingDate.list = bookingsCopy.filter(item => {
+                    return (new Date(booking.date).getMonth() === new Date(item.date).getMonth() &&
+                        new Date(booking.date).getDay() === new Date(item.date).getDay()&& 
+                        new Date(booking.date).getHours() === new Date(item.date).getHours() &&
+                        new Date(booking.date).getMinutes() === new Date(item.date).getMinutes()
+                    );
+                });
 
-                var date = new Date(element.date);
+                bookingDate.dayName = new Date(booking.date).toLocaleDateString("ro-RO", {
+                    weekday: "long"
+                });
+                // console.log('hello from bookingDate.list : ', new Date(booking.date).getMonth());
 
-                console.log(date.getDay());
-                console.log(date.getDate());
-                console.log(date.getMonth());
+                // if (bookingDate.list.length) {
+                //     bookingDate.list.map(booking => {
+                //         const indexToRemove = bookingsCopy.findIndex(element => {
+                //             return (booking.id === element.id);
+                //         });
+                //         if (indexToRemove) {
+                //             bookingsCopy = bookingsCopy.slice(0, indexToRemove);
+                //         }
+                //     });
+                // }
+
+                
+                // let options = {
+                //     weekday: 'long',
+                //     year: 'numeric',
+                //     month: 'long',
+                //     day: 'numeric'
+                // };
+
+                // bookingDate.date = booking.date;
+                // bookingDate.label =
+
+                var date = new Date(booking.date);
+                // console.log(date.getDay());
+                // let days = ['Sunday', 'Monday', 'Tuesday', 'Wensday', 'Thursday', 'Friday', 'Saturday']
+                // this.day = days[date.getDay()];
+                // console.log(date.getDate());
+                // this.dateDay = date.getDate();
+                // console.log(date.getMonth());
+                let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+                this.month = months[date.getMonth()];
 
                 //    return date.toLocaleDateString('ro-RO', options);
-                return date.toDateString('ro-RO', options);
+                // return date.toDateString('ro-RO', options);
+                return bookingDate;
             });
+
+
             console.log(this.date);
+
+            console.log(this.bookings);
+
+            // this.bookings.day = this.day;
+            // console.log(this.bookings.day);
+
+            // this.bookings.dateDay = this.dateDay;
+            // console.log(this.bookings.dateDay);
+
+            // this.bookings.month = this.month;
+            // console.log(this.bookings.month);
+
+
         });
+
+
     }
 
     getDates() {
@@ -107,17 +156,15 @@ class AdminBookingListController {
             });
             this.day.forEach(day => {
                 console.log(day.dateDay);
-                
+
             });
 
+            var dates = this.dates;
+            console.log('hello from dates variable', dates);
         });
-        var dates = this.dates;
-        console.log('hello from dates variable', dates);
 
-        // this.day = dates.filter((day) => {
-        //     console.log(day);
 
-        // });
+
     }
 
 

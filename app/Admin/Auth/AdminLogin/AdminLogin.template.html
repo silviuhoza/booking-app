@@ -12,26 +12,27 @@
 
 
       <div ng-show="loginForm.email.$touched && loginForm.email.$invalid  ">
-        <small style="color:red; display:block; text-align:center;">Enter a valid email</small>
+        <small class="alert">Enter a valid email</small>
       </div>
-      {{email.className}}
+
+    </div>
+    <div class=" form-group form-group-lg" ng-class=" { 'has-error':loginForm.password.$touched && loginForm.password.$invalid} ">
       <label class="control-label" for="">Password </label>
 
       <input id="password" name="password" placeholder="Your password" class="form-control " type="password" ng-model="$ctrl.admin.password"
         ng-required="true">
 
       <div ng-show="(loginForm.password.$touched && loginForm.password.$invalid)  || (loginForm.password.$invalid && loginForm.password.$submitted)">
-        <small class="admin-login-error">Enter a password, please!</small>
+        <small class="alert">Enter a password, please!</small>
       </div>
-
     </div>
 
-    <button ng-click="showMessage = true" class="btn btn-primary btn-lg btn-block ">
-      Login
+
+<button class="btn btn-primary btn-lg btn-block " ng-disabled="!$ctrl.admin.email ||  !$ctrl.admin.password " ng-click="$ctrl.getUserId()">Login
     </button>
 
-    <p class="lead text-primary" ng-show="showMessage">Please click the button to continue!
-      <a href="#/dashboard" class="btn btn-info">Continue</a>
+    <p class="lead text-primary" ng-show="$ctrl.response">Please click the button Continue!
+<a href="#/users/{{$ctrl.id}}" class="btn btn-info" >Continue</a>
     </p>
   </form>
 

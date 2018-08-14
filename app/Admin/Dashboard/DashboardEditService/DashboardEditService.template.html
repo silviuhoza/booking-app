@@ -13,39 +13,39 @@
           <div class="form-group">
             <label for="nameService" class="col-lg-2 control-label">Name service</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="nameService" placeholder="Service name" ng-model="$ctrl.clickedService.name">
+              <input type="text" class="form-control" id="nameService" placeholder="Service name" ng-model="$ctrl.selectService.name">
             </div>
           </div>
 
           <div class="form-group">
             <label for="serviceDuration" class="col-lg-2 control-label">Service Duration</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="serviceDuration" placeholder="" ng-model="$ctrl.clickedService.duration">
+              <input type="text" class="form-control" id="serviceDuration" placeholder="" ng-model="$ctrl.selectService.duration">
             </div>
           </div>
 
           <div class="form-group">
             <label for="descriptionService" class="col-lg-2 control-label">Service description</label>
             <div class="col-lg-10">
-              <textarea type="text" class="form-control" id="descriptionService" placeholder="Full description" ng-model="$ctrl.clickedService.description"></textarea>
+              <textarea type="text" class="form-control" id="descriptionService" placeholder="Full description" ng-model="$ctrl.selectService.description"></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="availabilityService" class="col-lg-2 control-label">Service Availability </label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="availabilityService" placeholder="" ng-model="$ctrl.clickedService.availability">
+              <input type="text" class="form-control" id="availabilityService" placeholder="" ng-model="$ctrl.selectService.availability">
             </div>
           </div>
           <div class="form-group">
             <label for="spacesService" class="col-lg-2 control-label">Service spaces </label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="spacesService" placeholder="" ng-model="$ctrl.clickedService.spaces">
+              <input type="text" class="form-control" id="spacesService" placeholder="" ng-model="$ctrl.selectService.spaces">
             </div>
           </div>
           <div class="form-group">
             <label for="priceService" class="col-lg-2 control-label">Service price </label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="priceService" placeholder="" ng-model="$ctrl.clickedService.price">
+              <input type="text" class="form-control" id="priceService" placeholder="" ng-model="$ctrl.selectService.price">
             </div>
           </div>
 
@@ -64,3 +64,10 @@
 
   </div>
 </div>
+
+<p test="$ctrl.test"> </p>
+
+<button class="btn" ng-click="$ctrl.sayHelloFromThisComponent()">
+  Say hello
+</button>
+

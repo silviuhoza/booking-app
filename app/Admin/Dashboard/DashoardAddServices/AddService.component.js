@@ -61,26 +61,12 @@ class AddServiceController {
                
             });
             console.log(this.services);
-            // this.service2 = response.data.filter(function (serv2) {
-            //     if (serv2.companyId === companyId) {
-            //         return true;
-            //     }
-            // });
-            // console.log(this.service2);
+           
             
         });
     }
 
-    // getServices() {
-    //     // this.$routeParams.id = this.services.companyId;
-    //     const url = `${API.base}${API.services}/${this.$routeParams.id}`
-    //     this.$http.get(url).then((response) => {
-    //         this.services = response.data;
-    //         console.log('hello din services');
-    //         console.log(this.services.companyId);
-
-    //     });
-    // }
+    
 
     addService() {
         this.getServices();
@@ -97,8 +83,8 @@ class AddServiceController {
 
         // });
 
-         const ur = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
-         this.$http.post(ur, this.service).then((response) => {
+         const url = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
+         this.$http.post(url, this.service).then((response) => {
              console.log('This is response data form post services', response.data);
          });
 
@@ -142,26 +128,7 @@ class AddServiceController {
         });
     }
 
-    // addService2() {
-    //     // console.log(this.service);
-
-    //     this.service.companyId = this.$routeParams.id;
-
-    //     const url = `${API.base}${API.services}`
-    //     this.$http.post(url, this.service).then((response) => {
-    //         console.log(response.data);
-
-    //     });
-
-    //     document.getElementById('serviceName').value = '';
-    //     document.getElementById('serviceDescription').value = '';
-    //     document.getElementById('serviceAvailability').value = '';
-    //     document.getElementById('serviceDuration').value = '';
-    //     document.getElementById('serviceSpaces').value = '';
-    //     document.getElementById('servicePrice').value = '';
-
-    // }
-
+    
 
 }
 

@@ -1,4 +1,7 @@
-import {$routeProvider, $locationProvider} from 'angular-route';
+import {
+    $routeProvider,
+    $locationProvider
+} from 'angular-route';
 
 function appConfig($routeProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
@@ -37,12 +40,12 @@ function appConfig($routeProvider, $locationProvider) {
         .when('/booking', {
             templateUrl: 'pages/Booking.html'
         })
-        .when('/dashboard', {
+        .when('/users/:id', {
             templateUrl: 'pages/AdminPages/Dashboard.html'
         })
-        
-        .otherwise('/client',{
-           templateUrl: 'Pages/ClientPages/Client.html'
+
+        .otherwise('/client', {
+            templateUrl: 'Pages/ClientPages/Client.html'
         })
 }
 

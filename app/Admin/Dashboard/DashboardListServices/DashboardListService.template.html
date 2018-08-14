@@ -51,7 +51,7 @@
           <div class="col-md-12">
             <p class="lead">
               <a href="#/admin/companies/{{$ctrl.company.id}}/bookinglist/{{$ctrl.serviceId}}" class="btn btn-info" ng-click="$ctrl.gotId(service)">
-              Bookings for this service</a>
+                Bookings for this service</a>
             </p>
           </div>
         </div>
@@ -61,7 +61,7 @@
 
 
   <!-- Modal -->
-  <div id="myModalEdit" class="modal fade" role="dialog">
+  <!-- <div id="myModalEdit" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg ">
 
 
@@ -125,8 +125,8 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 
 
-  <dashboard-edit-service-component></dashboard-edit-service-component>
+  <dashboard-edit-service-component say-hello="$ctrl.sayHello()" select-service="$ctrl.clickedService" service = "service"></dashboard-edit-service-component>
 </div>
