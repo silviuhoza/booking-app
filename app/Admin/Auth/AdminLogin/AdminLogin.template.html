@@ -29,7 +29,12 @@
 
 
 <button class="btn btn-primary btn-lg btn-block " ng-disabled="!$ctrl.admin.email ||  !$ctrl.admin.password " ng-click="$ctrl.getUserId()">Login
+
     </button>
+    <br>
+    <a  href="#/recover" class="btn btn-info">Recover your data</a>
+    <a  href="#/recover" class="btn btn-info">Forgot your password</a>
+    <a  href="#/register" class="btn btn-info">Register</a>
 
     <p class="lead text-primary" ng-show="$ctrl.response">Please click the button Continue!
 <a href="#/users/{{$ctrl.id}}" class="btn btn-info" >Continue</a>

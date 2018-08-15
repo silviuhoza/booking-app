@@ -11,7 +11,7 @@ class DashboardEditServiceController {
         this.$http = $http;
         this.$routeParams = $routeParams;
         this.company = {};
-        this.test = "hello from edit"
+        
 
     }
     $onInit() {
@@ -70,7 +70,7 @@ class DashboardEditServiceController {
 
 }
 const bindings = {
-    selectService: '<',
+    select: '<',
     service:'<',
     sayHello: '&',
     test: '@'

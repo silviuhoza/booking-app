@@ -13,6 +13,9 @@ function appConfig($routeProvider, $locationProvider) {
         .when('/login', {
             templateUrl: 'Pages/AdminPages/Login.html'
         })
+        .when('/recover', {
+            templateUrl: 'Pages/AdminPages/Recover.html'
+        })
         .when('/client', {
             templateUrl: 'Pages/ClientPages/Client.html'
         })

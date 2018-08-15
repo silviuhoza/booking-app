@@ -60,7 +60,7 @@ class DashboardListController {
     gotId(service) {
         this.serviceId = this.services.indexOf(service);
         console.log('from gotId', this.serviceId);
-        // console.log(service.name);
+        this.service3 = service;
 
 
     }

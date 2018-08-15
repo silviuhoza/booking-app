@@ -1,16 +1,22 @@
 <div id="recover" class="jumbotron">
   <h1> {{ $ctrl.title }}</h1>
   <form novalidate name="recoverForm" class="form-horizontal" ng-submit="$ctrl.recover($event)">
-    <div class=" form-group form-group-lg">
+    
+
+    <div class=" form-group form-group-lg" ng-class="{'has-error':recoverForm.email.$touched && recoverForm.email.$invalid}">
 
       <label class="control-label" for="">Email </label>
-      <input id="recoverEmail" type="email" class="form-control" placeholder="Your email" name="email" ng-model="$ctrl.user.email">
+
+      <input id="recoverEmail" name="email" placeholder="Your email " class="form-control  " type="email" ng-model="$ctrl.user.email"
+        ng-required="true" #name>
+
+
+
       <div ng-show="recoverForm.email.$touched && recoverForm.email.$invalid  ">
-        <small style="color:red; display:block; text-align:center;">Enter a valid email</small>
+        <small class="alert">Enter a valid email</small>
       </div>
 
-
     </div>
-    <button class="btn btn-primary btn-lg btn-block ">Recover</button>
+<button class="btn btn-primary btn-lg btn-block " ng-disabled="!$ctrl.user.email ">Recover</button>
   </form>
 </div>

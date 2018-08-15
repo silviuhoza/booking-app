@@ -1,19 +1,34 @@
 import template from './AdminRecover.template.html'
-import componentStyles from './AdminRecover.css'
+import componentStyles from './AdminRecover.css';
+import {
+    API
+} from "../../../Api";
 
 class AdminRecoverController {
-    constructor() {
+    constructor($http) {
         this.title = 'Recover Your Account';
-        this.user ={
+        this.$http = $http;
+        this.user = {};
 
-        };
-       
     }
 
     $onInit() {
         // console.log('hi there, I am', this.componentName);
+        this.getUsers();
     }
-    recover(event){
+
+
+    getUsers() {
+        const url = API.base + API.user;
+        this.$http.get(url).then((response) => {
+            console.log(response.data);
+            this.users = response.data;
+
+        });
+
+
+    }
+    recover(event) {
         event.preventDefault();
 
         console.log(this.user);
@@ -21,19 +36,30 @@ class AdminRecoverController {
         const recoverInput = document.getElementById('recoverEmail');
         recoverInput.value = '';
         // document.getElementById('recoverEmail').value = '';
-      
-          //selecting the div where I append the new Element
-          const div = document.getElementById('recover');
-          // Create li element
-          const p = document.createElement('p');
-          //Append the text to element
-          p.appendChild(document.createTextNode('You have successfuly send the recover data!'));
-          //Append the element to the div
-          div.appendChild(p);
-      
-          
-       
+
+
+        this.recoverUser = this.users.filter((user) => {
+            if (user.email === this.user.email) {
+                return user;
+            }
+        });
+        console.log(this.recoverUser[0].name);
+        console.log(this.recoverUser[0].password);
+        console.log(this.recoverUser[0].id);
+
+        //selecting the div where I append the new Element
+        const div = document.getElementById('recover');
+        // Create li element
+        const p = document.createElement('p');
+        //Append the text to element
+        p.appendChild(document.createTextNode('You have successfuly send the recover data!'));
+        //Append the element to the div
+        div.appendChild(p);
+
+
+
     }
+
 }
 
 const bindings = {
