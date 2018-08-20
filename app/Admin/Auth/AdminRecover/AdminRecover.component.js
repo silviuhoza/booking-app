@@ -43,11 +43,7 @@ class AdminRecoverController {
                return user;
                 
             }
-            // else {
-            //     alert('Your email is not in our database, you must register first!');
-
-
-            // }
+           
         });
         console.log(this.recoverUser[0].name);
         console.log(this.recoverUser[0].password);
