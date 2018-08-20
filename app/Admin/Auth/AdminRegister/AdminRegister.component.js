@@ -13,13 +13,13 @@ class AdminRegisterController {
     }
 
     $onInit() {
-        console.log('hi there, I am', this.componentName);
+        
     }
 
     register(event) {
         event.preventDefault();
 
-        console.log(this.user);
+        
         const url = API.base + API.user;
         this.$http.post(url, this.user).then((response) => {
             console.log('this user was added :' , response.data);
@@ -43,8 +43,7 @@ class AdminRegisterController {
 }
 
 const bindings = {
-    someInput: '<',
-    someOutput: '&'
+    
 }
 
 export const adminRegisterComponent = {

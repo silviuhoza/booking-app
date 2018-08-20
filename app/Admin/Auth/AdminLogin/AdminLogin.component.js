@@ -14,7 +14,7 @@ class AdminLoginController {
     }
 
     $onInit() {
-        // console.log('hi there, I am', this.componentName);
+        
         this.getUsers();
         
     }
@@ -28,7 +28,7 @@ class AdminLoginController {
     onSubmit(event) {
         event.preventDefault();
         
-        console.log(this.admin);
+       
         this.user = this.users.filter((user)=>{
             if (user.email === this.admin.email && user.password === this.admin.password) {
                 this.response = true;
@@ -60,8 +60,6 @@ class AdminLoginController {
             }
             
         });
-       
-        // console.log(this.userId[0].id);
         
         this.id = this.userId[0].id;
 
@@ -69,8 +67,7 @@ class AdminLoginController {
 }
 
 const bindings = {
-    someInput: '<',
-    someOutput: '&'
+    
 }
 
 export const adminLoginComponent = {

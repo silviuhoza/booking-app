@@ -1,8 +1,6 @@
 import template from './AdminRecover.template.html'
 import componentStyles from './AdminRecover.css';
-import {
-    API
-} from "../../../Api";
+import { API } from "../../../Api";
 
 class AdminRecoverController {
     constructor($http) {
@@ -13,7 +11,7 @@ class AdminRecoverController {
     }
 
     $onInit() {
-       
+
         this.getUsers();
     }
 
@@ -32,68 +30,51 @@ class AdminRecoverController {
         event.preventDefault();
 
         console.log(this.user);
-        //erasing the data from input
+        
         const recoverInput = document.getElementById('recoverEmail');
         recoverInput.value = '';
-        // document.getElementById('recoverEmail').value = '';
-
-
+        
         this.recoverUser = this.users.filter((user) => {
             if (user.email === this.user.email) {
-               return user;
-                
+                return user;
+
             }
-           
+
         });
-        console.log(this.recoverUser[0].name);
-        console.log(this.recoverUser[0].password);
-        console.log(this.recoverUser[0].id);
         
-
-        
-
-
-
     }
 
-    reset(){
+    reset() {
         if (this.newPassword === this.confirmNewPassword) {
-           this.recoverUser[0].password = this.newPassword;
-           console.log(this.recoverUser[0].password);
-           console.log(this.newPassword);
-           const url = `${API.base}${API.user}/${this.recoverUser[0].id}`
-           this.$http.put(url, this.recoverUser[0]).then((response) => {
-               console.log(' this is the update user : ', response.data);
+            this.recoverUser[0].password = this.newPassword;
+            console.log(this.recoverUser[0].password);
+            console.log(this.newPassword);
+            const url = `${API.base}${API.user}/${this.recoverUser[0].id}`
+            this.$http.put(url, this.recoverUser[0]).then((response) => {
+                console.log(' this is the update user : ', response.data);
 
-           });
-           this.log= true;
-           document.getElementById('reset').value = ' ';
-           document.getElementById('reset2').value = ' ';
+            });
+            this.log = true;
+            document.getElementById('reset').value = ' ';
+            document.getElementById('reset2').value = ' ';
 
-           //selecting the div where I append the new Element
 
-           const div = document.getElementById('recover');
 
-           // Create li element
+            const div = document.getElementById('recover');
 
-           const p = document.createElement('p');
+            const p = document.createElement('p');
 
-           //Append the text to element
+            p.appendChild(document.createTextNode('You have successfuly reset your password!'));
 
-           p.appendChild(document.createTextNode('You have successfuly reset your password!'));
-
-           //Append the element to the div
-
-           div.appendChild(p);
+            div.appendChild(p);
         }
-        
+
     }
 
 }
 
 const bindings = {
-    someInput: '<',
-    someOutput: '&'
+    
 }
 
 export const adminRecoverComponent = {

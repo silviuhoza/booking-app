@@ -39,27 +39,14 @@ class AdminBookingController {
             
             this.serviceName = this.services[this.$routeParams.serviceId].name;
             this.serviceDuration = this.services[this.$routeParams.serviceId].duration;
-            console.log(this.services);
-            console.log(this.companyId);
-            console.log(this.serviceId);
-
-
+           
         });
     }
     getBookings() {
         const url = `${API.base}${API.bookings}`;
         this.$http.get(url).then((response) => {
             console.log(response.data);
-            // this.bookingData = response.data.forEach(company => {
-            //     console.log(company[this.companyId]);
-
-            //     if (company.companyId === this.$routeParams.id) {
-            //         this.nimu = response.data[this.companyId - 1]
-            //     };
-
-            // });;
-            // this.bookings.push(this.nimu);
-            // console.log(this.bookingData, this.nimu);
+            
            
             var id = this.$routeParams.id;
             console.log(id);
@@ -87,8 +74,7 @@ class AdminBookingController {
 }
 
 const bindings = {
-    someInput: '<',
-    someOutput: '&'
+   
 }
 
 export const adminBookingComponent = {
