@@ -85,11 +85,11 @@ class CompanyDetailsController {
         this.$http.post(url, this.booking).then((response) => {
             console.log(response.data);    
         });
-        const urlDate = API.base + API.dates;
-        this.$http.post(urlDate, this.booking).then((response) => {
-            console.log(response.data);
+        // const urlDate = API.base + API.dates;
+        // this.$http.post(urlDate, this.booking).then((response) => {
+        //     console.log(response.data);
 
-        });
+        // });
 
         document.getElementById('name').value = '';
         document.getElementById('email').value = '';

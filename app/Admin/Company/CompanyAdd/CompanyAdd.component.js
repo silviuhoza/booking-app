@@ -1,6 +1,4 @@
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 import template from './CompanyAdd.template.html';
 import stylesComponent from './CompanyAdd.css';
 
@@ -25,7 +23,6 @@ class CompanyAddController {
         const url = API.base + API.companies;
 
         this.$http.post(url, this.company).then((response) => {
-            // this.$rootScope.$broadcast('event:CompanyAdd', response.data);
             console.log(response.data.id);
             this.idAdd = response.data.id;
             console.log(this.idAdd);
@@ -65,15 +62,13 @@ class CompanyAddController {
     }
     cancel() {
         this.company = {};
-        console.log('salut din cancel');
 
     }
 }
 
 
 const bindings = {
-    user: '<',
-    title:'@'
+   
 };
 
 export const companyAddComponent = {

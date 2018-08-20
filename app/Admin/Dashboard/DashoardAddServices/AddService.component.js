@@ -53,7 +53,7 @@ class AddServiceController {
             console.log(response.data);
             console.log(this.company.id);
             var companyId = this.$routeParams.id;
-            // console.log(this.$routeParams.id);
+            
             this.services = response.data.filter((service) => {
                 if (service.companyId === companyId) {
                     return true;
@@ -71,17 +71,6 @@ class AddServiceController {
     addService() {
         this.getServices();
         console.log(this.service);
-        // this.company.services = [];
-        // this.company.services.push(this.service);
-        // this.companyServices.push(this.service);
-        // this.company.services = this.companyServices;
-        // console.log(this.company.services);
-
-        // const url = `${API.base}${API.companies}/${this.$routeParams.id}`
-        // this.$http.put(url, this.company).then((response) => {
-        //     console.log(response.data);
-
-        // });
 
          const url = `${API.base}${API.companies}/${this.$routeParams.id}/${API.services}`;
          this.$http.post(url, this.service).then((response) => {
@@ -102,8 +91,7 @@ class AddServiceController {
       
         const url = `${API.base}${API.companies}/${this.company.id}`
         this.$http.delete(url).then((response) => {
-            // var idx = this.companies.indexOf(this.company.id);
-            // console.log(idx);
+           
 
             this.companies.splice(this.company.id, 1);
           
@@ -121,7 +109,7 @@ class AddServiceController {
     }
 
     done() {
-        console.log('salut ');
+       
         const url = `${API.base}${API.companies}/${this.id}`;
         this.$http.put(url, this.selectedCompany).then((response) => {
 

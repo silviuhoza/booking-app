@@ -22,11 +22,9 @@ class DashboardEditServiceController {
             console.log(id);
             this.id = id;
         });
-        // this.getServices();
-        // this.selectService();
+       
         console.log(this.$routeParams.id);
-        this.nimu = this.selectService;
-        console.log(this.nimu);
+       
         
 
 
@@ -40,8 +38,7 @@ class DashboardEditServiceController {
                     return true;
                 }
             });
-            console.log(this.serv);
-            // this.selectService = this.serv;
+           
         });
     }
 
@@ -57,23 +54,11 @@ class DashboardEditServiceController {
         });
     }
 
-    selectService(service) {
-        this.exem = service;
-        console.log(this.exem);
-
-    }
-
-    sayHelloFromThisComponent() {
-        this.sayHello();
-
-    }
+    
 
 }
 const bindings = {
-    select: '<',
-    service:'<',
-    sayHello: '&',
-    test: '@'
+   
 }
 export const dashboardEditServiceComponent = {
     controller: DashboardEditServiceController,
