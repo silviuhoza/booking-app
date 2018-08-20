@@ -13,7 +13,7 @@ class AdminRecoverController {
     }
 
     $onInit() {
-        // console.log('hi there, I am', this.componentName);
+       
         this.getUsers();
     }
 
