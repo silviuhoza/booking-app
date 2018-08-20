@@ -7,7 +7,7 @@
 
       <label class="control-label" for="">Email </label>
 
-      <input id="recoverEmail" name="email" placeholder="Your email " class="form-control  " type="email" ng-model="$ctrl.user.email"
+      <input id="recoverEmail" name="email" placeholder="Your email " class="form-control" type="email" ng-model="$ctrl.user.email"
         ng-required="true" #name>
 
 
@@ -17,6 +17,19 @@
       </div>
 
     </div>
-<button class="btn btn-primary btn-lg btn-block " ng-disabled="!$ctrl.user.email ">Recover</button>
+<button class="btn btn-primary btn-lg btn-block " ng-disabled="!$ctrl.user.email " ng-click="show= true">Recover</button>
+  </form>
+  <form  ng-if="show">
+    <p>Your name for this account is: {{$ctrl.recoverUser[0].name}}</p>
+<label class="control-label" for="">Your new password </label>
+<input type="text" id="reset" class="form-control" ng-model="$ctrl.newPassword" placeholder="Please insert your new password here!">
+<label class="control-label" for="">Confirm password </label>
+<input type="text" id="reset2" class="form-control" ng-model="$ctrl.confirmNewPassword" placeholder="Please insert your new password again to confirm!">
+
+<br>
+<button type="submit" class="btn btn-primary" ng-click=" $ctrl.reset(); showLogin = $ctrl.log ">Reset your password</button>
+
+<br>
+<a class="btn btn-primary" href="#/login" ng-show="showLogin" >Go to Login</button>
   </form>
 </div>

@@ -40,24 +40,57 @@ class AdminRecoverController {
 
         this.recoverUser = this.users.filter((user) => {
             if (user.email === this.user.email) {
-                return user;
+               return user;
+                
             }
+            // else {
+            //     alert('Your email is not in our database, you must register first!');
+
+
+            // }
         });
         console.log(this.recoverUser[0].name);
         console.log(this.recoverUser[0].password);
         console.log(this.recoverUser[0].id);
+        
 
-        //selecting the div where I append the new Element
-        const div = document.getElementById('recover');
-        // Create li element
-        const p = document.createElement('p');
-        //Append the text to element
-        p.appendChild(document.createTextNode('You have successfuly send the recover data!'));
-        //Append the element to the div
-        div.appendChild(p);
+        
 
 
 
+    }
+
+    reset(){
+        if (this.newPassword === this.confirmNewPassword) {
+           this.recoverUser[0].password = this.newPassword;
+           console.log(this.recoverUser[0].password);
+           console.log(this.newPassword);
+           const url = `${API.base}${API.user}/${this.recoverUser[0].id}`
+           this.$http.put(url, this.recoverUser[0]).then((response) => {
+               console.log(' this is the update user : ', response.data);
+
+           });
+           this.log= true;
+           document.getElementById('reset').value = ' ';
+           document.getElementById('reset2').value = ' ';
+
+           //selecting the div where I append the new Element
+
+           const div = document.getElementById('recover');
+
+           // Create li element
+
+           const p = document.createElement('p');
+
+           //Append the text to element
+
+           p.appendChild(document.createTextNode('You have successfuly reset your password!'));
+
+           //Append the element to the div
+
+           div.appendChild(p);
+        }
+        
     }
 
 }

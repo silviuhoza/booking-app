@@ -45,6 +45,8 @@ class AdminLoginController {
             
         document.getElementById('email').value = '';
         document.getElementById('password').value = '';
+        
+        
           
             
     }
@@ -59,7 +61,7 @@ class AdminLoginController {
             
         });
        
-        console.log(this.userId[0].id);
+        // console.log(this.userId[0].id);
         
         this.id = this.userId[0].id;
 

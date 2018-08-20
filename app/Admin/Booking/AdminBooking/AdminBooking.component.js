@@ -1,6 +1,4 @@
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 import template from './AdminBooking.template.html'
 import componentStyles from './AdminBooking.css'
 
