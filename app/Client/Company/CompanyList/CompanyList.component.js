@@ -1,6 +1,4 @@
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 import template from './CompanyList.template.html';
 import stylesComponent from './CompanyList.css';
 class CompanyListController {
@@ -24,7 +22,6 @@ class CompanyListController {
         const url = API.base + API.companies
         this.$http.get(url).then((response) => {
             this.companies = response.data;
-            // console.log(response.data);
 
         });
     }

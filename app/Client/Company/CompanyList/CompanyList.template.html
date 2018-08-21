@@ -1,12 +1,15 @@
+<div class="container">
+  <div class="row center-block">
 
-
-<div class="container-fluid center-block">
-  <div class="row  center-block">
-
-    <div class="company thumbnail col-lg-6" ng-repeat="company in $ctrl.companies">
+    <div class="company  well col-lg-4" ng-repeat="company in $ctrl.companies">
       <h1>{{company.name}}</h1>
       <p>{{company.description}}</p>
+      <div class="row">
+        <img src="{{company.url}}" class="img-responsive  col-lg-5">
+      </div>
+      <br>
       <a href="#/companies/{{company.id}}" class="btn btn-group-lg btn-block btn-info">Details</a>
     </div>
+    
   </div>
 </div>

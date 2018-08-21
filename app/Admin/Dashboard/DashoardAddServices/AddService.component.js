@@ -1,6 +1,4 @@
-import {
-    API
-} from '../../../Api';
+import { API } from '../../../Api';
 import template from './AddService.template.html';
 import stylesComponent from './AddService.css';
 
@@ -14,8 +12,7 @@ class AddServiceController {
         this.company = {};
         this.service = {};
         this.companies = [];
-        // this.company.services = [];
-        this.companyServices = [];
+        
 
 
 
@@ -35,7 +32,7 @@ class AddServiceController {
         this.$http.get(url).then((response) => {
             this.company = response.data;
             console.log(response.data);
-            // this.serv = this.company.services;
+            
         });
 
 

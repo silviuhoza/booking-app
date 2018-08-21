@@ -150,9 +150,6 @@ class DashboardListController {
 
         });
     }
-
-    
-
 }
 
 

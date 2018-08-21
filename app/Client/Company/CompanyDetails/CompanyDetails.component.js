@@ -56,8 +56,6 @@ class CompanyDetailsController {
 
     bookNumber(service, id) {
         console.log(id);
-
-        console.log('hello this is:', service);
         this.service = service;
         this.serviceId = this.services2.indexOf(service);
         console.log(this.serviceId);
@@ -85,17 +83,13 @@ class CompanyDetailsController {
         this.$http.post(url, this.booking).then((response) => {
             console.log(response.data);    
         });
-        // const urlDate = API.base + API.dates;
-        // this.$http.post(urlDate, this.booking).then((response) => {
-        //     console.log(response.data);
-
-        // });
+      
 
         document.getElementById('name').value = '';
         document.getElementById('email').value = '';
         document.getElementById('phoneNumber').value = '';
         document.getElementById('book-time').value = '';
-        // document.getElementById('book-hours').value = '';
+        
 
     }
 }
