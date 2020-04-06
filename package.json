@@ -47,7 +47,7 @@
         "webpack-dev-server": "^2.4.2"
     },
     "dependencies": {
-        "angular": "^1.6.4",
+        "angular": "^1.7.9",
         "angular-route": "^1.7.2"
     }
 }
